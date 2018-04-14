@@ -1,0 +1,45 @@
+{
+	"model": {
+		"user": {
+			"name": "dummytext",
+			"token": "dummytext",
+			"weight": 100
+		},
+		"planned_visits": [{
+				"date": "dummyvisitdate1",
+				"doctor_name": "dummydoctorname1",
+				"location": "dummylocation1"
+			},
+			{
+				"date": "dummyvisitdate2",
+				"doctor_name": "dummydoctorname2",
+				"location": "dummylocation2"
+			}
+		],
+		"medications": [{
+				"name": "dummymed1",
+				"properties": [{
+						"name": "dummypropname1",
+						"info": "dummypropinfo1"
+					},
+					{
+						"name": "dummypropname2",
+						"info": "dummypropinfo2"
+					}
+				]
+			},
+			{
+				"name": "dummymed2",
+				"properties": [{
+						"name": "dummypropname3",
+						"info": "dummypropinfo3"
+					},
+					{
+						"name": "dummypropname4",
+						"info": "dummypropinfo4"
+					}
+				]
+			}
+		]
+	}
+}
