@@ -19,7 +19,8 @@ var Login_reg_view = {
 
                 $(".whole_form").css("width","100%");
                 $(".whole_form").css("height","100%");
-                $(".login_form").css("margin-top","13%");
+                $(".login_form").css("top","20px");
+                $(".login_form").css("height","80%");
 
                 $(".sing_in_btn").val("Cancel");
                 CurrentState = STATE.SIGNING_UP;
@@ -57,6 +58,17 @@ var Login_reg_view = {
             }
 
           });
+
+          $(".facebook_login_start").on("click",()=>{
+            CallbackUserData("facebook");
+          });
+          $(".twitter_login_start").on("click",()=>{
+            CallbackUserData("twitter");
+          });
+          $(".google_login_start").on("click",()=>{
+            CallbackUserData("google");
+          });
+
       });
 
 

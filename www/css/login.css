@@ -29,22 +29,29 @@
 }
 
 .login_screen_heading{
+  position: relative;
   text-transform: uppercase;
   font-family: 'Yantramanav', sans-serif;
   font-weight: 100;
-  font-size: 65px;
+  font-size: 45px;
   color: #000; /* Fallback for older browsers */
   opacity: 0.8;
   color: rgba(222, 221, 235, 0.8);
   text-align: center;
+  margin: 0;
+  top: 20px;
+  display: block;
 }
 
 .login_form{
+  display: block;
+  top: 35px;
+  position: relative;
   margin: auto;
   height: 60%;
   width: 70%;
   background-color: rgba(255,255,255,0.9);
-  padding: 40px 20px;
+  padding: 30px 30px;
   border-radius: 20px;
   text-align: center;
 }
@@ -85,7 +92,7 @@
   -webkit-transition:0.2s ease all;
 }
 
-.login_input:focus ~ .login_input_label, .login_input:valid ~ .login_input_label {
+.login_input:focus ~ .login_input_label, .login_input:valid ~ .login_input_label, .login_input:not(:placeholder-shown) ~ .login_input_label{
   top:-20px;
   font-size:14px;
   color:#5264AE;
@@ -124,7 +131,7 @@
 }
 
 .btn_log{
-  padding: 15px 30px;
+  padding: 12px 22px;
   border:none;
   display: inline-block;
   color: white;
@@ -146,4 +153,27 @@
 .sing_in_btn:hover{
   background: rgba(8, 126, 19, 0.87);
   cursor: pointer;
+}
+
+.or_sign_in_with{
+  padding:0;
+  margin-bottom: 0;
+}
+
+
+
+a.facebook_login_start{
+  color: #3b5998;
+}
+
+a.twitter_login_start{
+  color: #00aced;
+}
+
+a.google_login_start{
+  color:#ea4335;
+}
+a.other_sign:hover{
+  cursor: pointer;
+  color: black;
 }

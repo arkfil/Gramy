@@ -1,7 +1,5 @@
-
-// TODO: When whole loggin system will be ready
-//       checkout whether user is logged in if he is not continue with this script
-//       if he is logged in you can ommit it and use app
+deprecated
+/*
 
 $(document).ready(() => {
 
