@@ -1,18 +1,40 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-</head>
+<div class= "login_screen">
+  <div class = "login_container">
+    <h1 class="login_screen_heading">Hello<br>be healthy!</h1>
+
+    <div class="whole_form">
 
 
+    <form class="login_form">
+        <div class="group">
+          <input class="username_input login_input" type="text" required>
+          <span class="bar"></span>
+          <label class="login_input_label">User name</label>
+        </div>
 
-<script src="../js/jquery-2.1.4.min.js"></script>
-<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+        <div class="group email_group">
+          <input class="username_input login_input" type="email" required>
+          <span class="bar"></span>
+          <label class="login_input_label">Email</label>
+        </div>
 
-<body>
+        <div class="group">
+          <input class="password_input login_input" type="password" required >
+          <span class="bar"></span>
+          <label class="login_input_label">Password</label>
+        </div>
 
-</body>
-</html>
+        <div class="group password_repeat_group">
+          <input class="password_repeat_input login_input" type="password" required>
+          <span class="bar"></span>
+          <label class="login_input_label">Repeat password</label>
+        </div>
+
+
+        <input type="button" value="Sign in" class="sing_in_btn btn_log">
+        <input type="button" value="Sing up" class="sing_up_btn btn_log">
+    </form>
+    </div>
+  </div>
+
+</div>

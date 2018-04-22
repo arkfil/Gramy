@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Yantramanav");
+
+.login_screen{
+  background: #ffffff url("img_tree.png") no-repeat left top;
+  background-image: url("../img/17.jpeg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.login_container{
+  position: relative;
+
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.whole_form{
+  top:0;
+  left: 0;
+  height: auto;
+}
+
+.login_screen_heading{
+  text-transform: uppercase;
+  font-family: 'Yantramanav', sans-serif;
+  font-weight: 100;
+  font-size: 65px;
+  color: #000; /* Fallback for older browsers */
+  opacity: 0.8;
+  color: rgba(222, 221, 235, 0.8);
+  text-align: center;
+}
+
+.login_form{
+  margin: auto;
+  height: 60%;
+  width: 70%;
+  background-color: rgba(255,255,255,0.9);
+  padding: 40px 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.group{
+  position:relative;
+  width: 100%;
+  margin-bottom:30px;
+
+}
+/* .group:first-of-type{
+  margin-bottom:45px;
+} */
+
+.login_input{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size:18px;
+  padding:10px;
+  display:block;
+  width: 100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.login_input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+.login_input_label 				 {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+.login_input:focus ~ .login_input_label, .login_input:valid ~ .login_input_label {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+.login_input:focus ~ .bar:before, .login_input:focus ~ .bar:after {
+  width:50%;
+}
+
+.email_group{
+  display: none;
+}
+.password_repeat_group{
+  display: none;
+}
+
+.btn_log{
+  padding: 15px 30px;
+  border:none;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: 0.35s ease-in-out;
+  font-weight: 700;
+}
+.sing_up_btn{
+  background: #EF233C;
+}
+.sing_up_btn:hover{
+  background: #de2137;
+  cursor: pointer;
+}
+
+.sing_in_btn{
+  background: rgba(8, 126, 19, 0.8);
+}
+.sing_in_btn:hover{
+  background: rgba(8, 126, 19, 0.87);
+  cursor: pointer;
+}

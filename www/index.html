@@ -1,47 +1,41 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-		<script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
-
-		<script>
-		  // Initialize Firebase
-		  var config = {
-		    apiKey: "AIzaSyADWloLgVGdyTIM5OlIh_rUMgVvEYKqoxg",
-		    authDomain: "zajebistosc-476e3.firebaseapp.com",
-		    databaseURL: "https://zajebistosc-476e3.firebaseio.com",
-		    projectId: "zajebistosc-476e3",
-		    storageBucket: "zajebistosc-476e3.appspot.com",
-		    messagingSenderId: "152682565913"
-		  };
-	  firebase.initializeApp(config);
-
-		var ref = new Firebase('zajebistosc-476e3.firebaseapp.com');
-		var auth = new FirebaseSimpleLogin(ref, function(error, user) {
-		  if (error) {
-			   alert('Authentication error: '+ error);
-		  } else if (user) {
-		    alert('User ' + user.id + ' authenticated via the ' + user.provider + ' provider!');
-		  } else {
-		    alert("User is logged out.")
-		  }
-		});
-
-	</script>
-
-
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+
+
+		<script type="text/javascript" src = "js/init.js"></script>
+
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yantramanav">
 
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/full_index.css" />
 
 	</head>
 	<body>
+		<div class="container" style="min-height: 100%; ">
+			<article class="main_contents">
 
+
+
+			</article>
+		</div>
+
+
+		<!-- <script type="text/javascript" src="cordova.js"></script> -->
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+		<script type="text/javascript" src = "js/login.js"></script>
+		<script type="text/javascript" src = "js/model.js"></script>
+		<script type="text/javascript" src = "js/view.js"></script>
 
 
 	</body>
 
-	<script src="cordova.js"></script>
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+
 </html>
