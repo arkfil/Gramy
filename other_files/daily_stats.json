@@ -1,0 +1,14 @@
+{
+    "model": {
+        "user_token": "0001",
+        "daily_stats": {
+            "measurement_id":"2",
+            "datetime": "2018-04-29 21:02",
+            "pressure":{
+                "systolic":"120",
+                "diastolic":"80"
+            },
+            "heart_rate":"75"
+        }
+    }
+}
