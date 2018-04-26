@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css?family=Yantramanav");
+
+.login_screen{
+  background: #ffffff;
+  background-image: url("../../assets/17.jpeg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.login_container{
+  position: relative;
+
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.whole_form{
+  top:0;
+  left: 0;
+  height: auto;
+}
+
+.login_screen_heading{
+  position: relative;
+  text-transform: uppercase;
+  font-family: 'Yantramanav', sans-serif;
+  font-weight: 100;
+  font-size: 45px;
+  color: #000; /* Fallback for older browsers */
+  opacity: 0.8;
+  color: rgba(222, 221, 235, 0.8);
+  text-align: center;
+  margin: 0;
+  top: 20px;
+  display: block;
+}
+
+.login_form{
+  display: block;
+  top: 35px;
+  position: relative;
+  margin: auto;
+  height: 60%;
+  width: 70%;
+  background-color: rgba(255,255,255,0.9);
+  padding: 30px 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.group{
+  position:relative;
+  width: 100%;
+  margin-bottom:30px;
+
+}
+/* .group:first-of-type{
+  margin-bottom:45px;
+} */
+
+.login_input{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size:18px;
+  padding:10px;
+  display:block;
+  width: 100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.login_input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+.login_input_label 				 {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+.login_input:focus ~ .login_input_label, .login_input:valid ~ .login_input_label, .login_input:not(:placeholder-shown) ~ .login_input_label{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+.login_input:focus ~ .bar:before, .login_input:focus ~ .bar:after {
+  width:50%;
+}
+
+.email_group{
+  display: none;
+}
+.password_repeat_group{
+  display: none;
+}
+
+.btn_log{
+  padding: 12px 22px;
+  border:none;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: 0.35s ease-in-out;
+  font-weight: 700;
+}
+.sing_up_btn{
+  background: #EF233C;
+}
+.sing_up_btn:hover{
+  background: #de2137;
+  cursor: pointer;
+}
+
+.sing_in_btn{
+  background: rgba(8, 126, 19, 0.8);
+}
+.sing_in_btn:hover{
+  background: rgba(8, 126, 19, 0.87);
+  cursor: pointer;
+}
+
+.or_sign_in_with{
+  padding:0;
+  margin-bottom: 0;
+}
+
+
+
+a.facebook_login_start{
+  color: #3b5998;
+}
+
+a.twitter_login_start{
+  color: #00aced;
+}
+
+a.google_login_start{
+  color:#ea4335;
+}
+a.other_sign:hover{
+  cursor: pointer;
+  color: black;
+}
