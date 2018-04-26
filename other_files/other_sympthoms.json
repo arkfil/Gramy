@@ -1,0 +1,12 @@
+{
+    "model": {
+        "measurement_id":"2",
+        "headache_intensity": "1",
+        "other_sympthoms": [
+            "krwawienie z nosa",
+            "zaburzenia snu",
+            "zaczerwieniona twarz",
+            "zmęczenie"
+        ]
+    }
+}
