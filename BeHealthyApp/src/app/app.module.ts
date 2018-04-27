@@ -10,18 +10,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 import { environment } from '../environments/environment';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'baihealthy'),
-        AngularFireDatabaseModule
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
