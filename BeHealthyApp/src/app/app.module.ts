@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+// import { LoginComponent } from './login/login.component';
 
 import { environment } from '../environments/environment';
 import { ChartComponent } from './chart/chart.component';
@@ -16,8 +16,8 @@ import { ChartComponent } from './chart/chart.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    ChartComponent
+    ChartComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
