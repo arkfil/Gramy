@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as CanvasJS from 'canvasjs'
+import * as CanvasJS from '../../CanvasJS';
 
 @Component({
   selector: 'app-chart',
