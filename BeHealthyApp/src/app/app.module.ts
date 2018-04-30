@@ -10,13 +10,12 @@ import { AppComponent } from './app.component';
 // import { LoginComponent } from './login/login.component';
 
 import { environment } from '../environments/environment';
-import { ChartComponent } from './chart/chart.component';
+// import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChartComponent,
     routingComponents
   ],
   imports: [

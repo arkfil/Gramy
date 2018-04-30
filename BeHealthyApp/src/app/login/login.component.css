@@ -75,6 +75,7 @@
   width: 100%;
   border:none;
   border-bottom:1px solid #757575;
+  border-radius: 2px;
 }
 .login_input:focus 		{ outline:none; }
 
@@ -123,9 +124,6 @@
   width:50%;
 }
 
-.email_group{
-  display: none;
-}
 .password_repeat_group{
   display: none;
 }

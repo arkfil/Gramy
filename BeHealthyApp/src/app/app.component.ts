@@ -9,5 +9,7 @@ import { DailyStats } from '../models/DailyStats';
 
 export class AppComponent {
   title = 'BeHealthy';
+  constructor(){
 
+  }
 }
