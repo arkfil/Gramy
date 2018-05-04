@@ -1,0 +1,28 @@
+
+<ion-menu [content]="mycontent">
+  <ion-content padding>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div><p>contents</p></div>
+</ion-content>
