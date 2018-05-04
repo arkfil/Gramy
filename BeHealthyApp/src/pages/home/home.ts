@@ -29,4 +29,10 @@ export class HomePage {
 
   }
 
+  openChartPage(){
+    this.navCtrl.push('ChartPage');
+
+
+  }
+
 }
