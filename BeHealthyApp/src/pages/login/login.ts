@@ -26,7 +26,7 @@ export class LoginPage {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       console.log(result);
       if(result)
-        this.navCtrl.setRoot('HomePage');
+        this.navCtrl.setRoot('MenuPage');
     } catch(e){
       console.log("Error while signing in with email and password, error: " + e);
     }

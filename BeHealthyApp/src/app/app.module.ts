@@ -19,6 +19,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+// import { ChartPage } from '../pages/chart/chart';
 
 
 
@@ -34,11 +35,6 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    // GoogleLoginComponent,
-    // AboutPage,
-    // ContactPage,
-    // HomePage,
-    // TabsPage,
     LoginPage
 
   ],
@@ -52,12 +48,8 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    // GoogleLoginComponent,
-    // AboutPage,
-    // ContactPage,
-    // HomePage,
-    // TabsPage,
     LoginPage
+
   ],
   providers: [
     GooglePlus,
