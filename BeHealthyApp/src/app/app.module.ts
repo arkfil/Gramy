@@ -19,8 +19,8 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { ChartPage } from '../pages/chart/chart';
 
+// import { Geolocation } from '@ionic-native/geolocation'
 
 
 const firebaseConfig = {
@@ -56,6 +56,7 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+    // Geolocation
   ]
 })
 export class AppModule {}
