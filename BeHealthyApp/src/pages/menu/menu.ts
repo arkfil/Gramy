@@ -67,7 +67,7 @@ export class MenuPage {
     if(this.nav.getActiveChildNavs()[0] && page.index != undefined){
       this.nav.getActiveChildNavs()[0].select(page.index);
     }else{
-      this.nav.setRoot(page.pageName, params);
+      this.nav.setRoot(page.pageName, params, {animate: true, direction: 'forward'});
     }
   }
 
