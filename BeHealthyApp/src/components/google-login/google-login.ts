@@ -14,7 +14,6 @@ import { Platform } from 'ionic-angular';
 })
 
 export class GoogleLoginComponent {
-
   user: Observable<firebase.User>;
 
   constructor(private afAuth: AngularFireAuth,

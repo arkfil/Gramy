@@ -7,6 +7,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { Facebook } from '@ionic-native/facebook';
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 import { ComponentsModule } from '../components/components.module';
 
@@ -56,7 +57,8 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Geolocation
+    Geolocation,
+    Facebook
   ]
 })
 export class AppModule {}
