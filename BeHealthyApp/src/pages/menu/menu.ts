@@ -2,6 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth'
 import { ChartPage } from '../chart/chart';
+import { LoginPage } from '../login/login';
+import { AuthorsPage } from '../authors/authors';
+
 
 export interface PageInterface{
   title: string;
@@ -26,14 +29,15 @@ export class MenuPage {
 
   // pages: Array<{title: string, component: any}>;
   pages: PageInterface[] = [
-    {title:'Measure', pageName: 'TabsPage', tabComponent: 'MeasurePage', index: 0, icon: 'home'},
-    {title:'Tab 2', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'contacts'},
+    {title:'Measure', pageName: 'TabsPage', tabComponent: 'MeasurePage', index: 0, icon: 'md-analytics'},
+    {title:'History', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'md-clock'},
     {title:'Map', pageName: 'MapPage', icon: 'map'},
-    {title:'Chart', pageName: 'ChartPage', icon: 'md-stats'}
+    {title:'Chart', pageName: 'ChartPage', icon: 'md-stats'},
+    {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
 
   ]
 
-  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams, ) {
     // this.pages = [
     //   { title: 'Chart Page', component: ChartPage  }
     // ];
@@ -83,5 +87,19 @@ export class MenuPage {
     if(this.nav.getActive() && this.nav.getActive().name == page.pageName){
       return "primary";
     }
+  }
+
+  signOut(){
+      try{
+        this.afAuth.auth.signOut();
+        // if(this.platform.is('cordova')){
+        //   this.gplus.logout();
+        // }else{
+
+        // }
+        this.navCtrl.setRoot(LoginPage);
+      }catch(e){
+        console.log("Error while logging out with google");
+      }
   }
 }

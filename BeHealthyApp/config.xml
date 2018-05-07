@@ -100,6 +100,7 @@
         <variable name="APP_NAME" value="BeHealthy" />
         <variable name="ANDROID_SDK_VERSION" value="4.+" />
     </plugin>
-    <engine name="android" spec="^7.0.0" />
     <allow-navigation href="http://192.168.43.72:8100" />
+    <allow-navigation href="http://192.168.1.3:8100" />
+    <engine name="android" spec="^7.0.0" />
 </widget>

@@ -22,7 +22,22 @@ export class LoginPage {
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
     private gplus: GooglePlus) {
+
+      afAuth.auth.onAuthStateChanged(function(user) {
+        if (user) {
+          this.appUser = user;
+          console.log("User:");
+          console.log(this.appUser);
+          navCtrl.setRoot('MenuPage');
+
+        } else {
+          // No user is signed in.
+        }
+      });
+
   }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -35,10 +50,10 @@ export class LoginPage {
 
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       console.log(result);
-      this.appUser = result;
-      if(result){
-        this.navCtrl.setRoot('MenuPage');
-      }
+      // this.appUser = result;
+      // if(result){
+      //   this.navCtrl.setRoot('MenuPage');
+      // }
 
       loading.dismissAll();
     } catch(e){
@@ -57,90 +72,74 @@ export class LoginPage {
   loginWithFacebook(){
     try{
       if(this.platform.is('cordova')){
-        this.facebook.login(["email"]).then(loginResp=>{
-          let credential = firebase.auth.FacebookAuthProvider.credential(loginResp.authResponse.accessToken);
-          firebase.auth().signInWithCredential(credential).then(info=>{
-            console.log(info);
-            this.appUser = info;
-          }).catch(e=>{
-            console.log(e);
-          });
-        }).catch(e=>{
-          console.log(e);
-        });
-
+        this.nativeFacebookLogin();
       }else{
-        let provider = new firebase.auth.FacebookAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(()=>{
-          firebase.auth().getRedirectResult().then(result=>{
-            console.log(result);
-            this.appUser=result;
-          }).catch(err=>{
-            console.log(err);
-          });
-        }).catch(e=>{});
+        this.webFacebookLogin();
       }
     }catch(e){
 
     }
   }
 
+  async nativeFacebookLogin(): Promise<void> {
+    try{
+      const facebookLogin = await this.facebook.login(["email"]);
+      let credential = firebase.auth.FacebookAuthProvider.credential(facebookLogin.authResponse.accessToken);
+      return await this.afAuth.auth.signInWithCredential(credential);
+    }catch(e){
+      console.log("native fb: " + e);
+    }
+  }
+
+  async webFacebookLogin(){
+    const provider = new firebase.auth.FacebookAuthProvider();
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+  }
+
+
   /* Login with google */
   googleLogin() {
     console.log("google login ");
 
     if(this.platform.is('cordova')){
-
-      try{
         //  const gplusUser =
-        this.gplus.login({
-          'webClientId':'756039335184-ke1ifc475v90oa1f52c66lb7d4tisbj6.apps.googleusercontent.com',
-          'offline': true,
-          'scopes': 'profile email'
-        }).then(loginResp=>{
-          console.log("here");
-
-          let credential = firebase.auth.GoogleAuthProvider.credential(loginResp.authResponse.idToken)
-          firebase.auth().signInWithCredential(credential).then(info=>{
-            console.log(info);
-            this.appUser = info;
-          }).catch(e=>{
-            console.log("ErrorHERE"+e);
-          });
-        }).catch(err=>{
-          console.log("Hell, here error: "+ err);
-        });
-
-      }catch(err){
-        console.log("Error while singing in with cordova google: " + err);
-      }
+        this.nativeGoogleLogin();
     }else{
       console.log("here");
-
-      try{
-        const provider = new firebase.auth.GoogleAuthProvider();
-
-        // const credential = this.afAuth.auth.signInWithPopup(provider);
-        firebase.auth().signInWithPopup(provider).then(()=>{
-          firebase.auth().getRedirectResult().then(result=>{
-            console.log(result);
-            this.appUser =result;
-          }).catch(err=>{
-            console.log(err);
-          });
-        }).catch(e=>{
-          console.log(e);
-        });
-
-
-      }catch(err){
-        console.log("Error while singing in with web google: " + err);
-
-      }
+        this.webGoogleLogin();
     }
   }
 
 
+async nativeGoogleLogin(): Promise<void> {
+  try{
+    const gplusUser = await this.gplus.login({
+      'webClientId':'756039335184-ke1ifc475v90oa1f52c66lb7d4tisbj6.apps.googleusercontent.com',
+      'offline': true,
+      'scopes': 'profile email'
+    });
 
+    return await this.afAuth.auth.signInWithCredential(
+      firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken)
+    );
+
+  }catch(err){
+    console.log("Error while singing in with cordova google: " + err);
+    if(err==7 || err==8)
+      alert("No internet connection!");
+  }
+}
+
+async webGoogleLogin(): Promise<void>{
+  try{
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    console.log(credential);
+
+  }catch(err){
+    console.log("Error while singing in with web google: " + err);
+
+  }
+}
 
 }

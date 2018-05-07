@@ -8,12 +8,26 @@
       </ion-header>
     <ion-content padding>
       <ion-list>
-          <button menuClose ion-item *ngFor="let p of pages"  color="light" (tap)="openPage(p)">
+          <button menuClose nav-clear ion-item *ngFor="let p of pages"  color="light" (tap)="openPage(p)">
             <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
             {{ p.title }}
           </button>
+
+
+
+
       </ion-list>
+
     </ion-content>
+
+    <ion-footer padding>
+      <button menuColose ion-item color="danger" (tap)="signOut()">
+        <ion-icon item-start name="md-log-out" color="light"></ion-icon>
+        Sign out
+      </button>
+      <br>
+    </ion-footer>
+
   </ion-menu>
 
   <ion-nav #mycontent [root]="rootPage" swipeBackEnabled="false"></ion-nav>

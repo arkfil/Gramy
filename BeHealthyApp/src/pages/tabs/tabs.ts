@@ -19,4 +19,6 @@ export class TabsPage {
     console.log('ionViewDidLoad TabsPage');
   }
 
+
+
 }
