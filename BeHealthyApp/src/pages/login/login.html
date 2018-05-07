@@ -15,14 +15,15 @@
 
 <ion-content padding>
   <ion-list>
-
+    <br>
+    <br><br>
     <ion-item>
       <ion-label>
         <ion-icon name="md-contact"></ion-icon>
       </ion-label>
       <ion-input type="email"  placeholder="Email" value="" [(ngModel)]="user.email"></ion-input>
     </ion-item>
-
+    <br>
     <ion-item>
       <ion-label>
         <ion-icon name="md-cog"></ion-icon>
@@ -44,12 +45,15 @@
         <ion-icon name="logo-googleplus"></ion-icon>
         Sign In With Google
       </button> -->
-      <google-login></google-login>
-    <br><br>
+    <button ion-button icon-left full class="googleplus-btn" (tap)= "googleLogin()">
+      <ion-icon name="logo-googleplus" ></ion-icon>
+      Sign In With Google
+    </button>
+    <br><br><br>
     <button color="light" ion-button icon-left full (tap)="registerPage()">
       <ion-icon name="md-person-add"></ion-icon>
         Or Sign Up
     </button>
-
+    <div>You are logged in with google plus, UID: {{ appUser?.uid }}</div>
   </ion-list>
 </ion-content>
