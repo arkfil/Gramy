@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Modal,ModalOptions, ModalController} from 'ionic-angular';
 
 
 @IonicPage()
@@ -9,11 +9,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MeasurePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MeasurePage');
   }
 
+  presentModal() {
+    const myModalOptions: ModalOptions = {
+      enableBackdropDismiss: false
+    };
+
+    // const myModalData = {
+    //   name: 'Paul Halliday',
+    //   occupation: 'Developer'
+    // };
+
+    let modal = this.modalCtrl.create('AddMeasureModalPage',myModalOptions);
+
+    modal.present();
+
+    modal.onDidDismiss((data) => {
+      console.log("I have dismissed.");
+      console.log(data);
+    });
+
+    modal.onWillDismiss((data) => {
+      console.log("I'm about to dismiss");
+      console.log(data);
+});
+  }
 }

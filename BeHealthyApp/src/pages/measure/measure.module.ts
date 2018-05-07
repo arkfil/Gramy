@@ -4,10 +4,12 @@ import { MeasurePage } from './measure';
 
 @NgModule({
   declarations: [
-    MeasurePage,
+    MeasurePage
   ],
   imports: [
-    IonicPageModule.forChild(MeasurePage),
+    IonicPageModule.forChild(MeasurePage)
   ],
+  entryComponents:[
+  ]
 })
 export class MeasurePageModule {}

@@ -35,12 +35,19 @@ export class MyApp {
 
     //     } else {
     //       // No user is signed in.
-    //       this.rootPage= LoginPage;
+          this.rootPage= LoginPage;
 
     //     }
 
 
-      statusBar.styleDefault();
+      // statusBar.styleDefault();
+//
+
+      statusBar.overlaysWebView(true);
+
+// set status bar to white
+      statusBar.backgroundColorByHexString('#d54e07');
+
       splashScreen.hide();
     });
   }

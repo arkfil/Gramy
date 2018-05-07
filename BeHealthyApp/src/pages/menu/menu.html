@@ -2,18 +2,16 @@
 
 <ion-menu [content]="mycontent">
     <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="orange-crush">
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-    <ion-content padding>
+    <ion-content>
       <ion-list>
-          <button menuClose nav-clear ion-item *ngFor="let p of pages"  color="light" (tap)="openPage(p)">
+          <button menuClose nav-clear ion-item *ngFor="let p of pages" (tap)="openPage(p)">
             <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
             {{ p.title }}
           </button>
-
-
 
 
       </ion-list>
