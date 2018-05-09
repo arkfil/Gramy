@@ -2,12 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import { CardioParams } from '../../models/CardioParams';
 
-/**
- * Generated class for the AddMeasureModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -31,7 +26,9 @@ export class AddMeasureModalPage {
   }
 
   addMeasure(){
-    // this.view.dismiss(cardioParams);
+     this.view.dismiss(this.cardioParams);
+   // this.view.dismiss();
+
   }
 
 }

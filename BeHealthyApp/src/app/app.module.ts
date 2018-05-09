@@ -12,10 +12,6 @@ import { Facebook } from '@ionic-native/facebook';
 import { ComponentsModule } from '../components/components.module';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-// import { AboutPage } from '../pages/about/about';
-// import { ContactPage } from '../pages/contact/contact';
-// import { HomePage } from '../pages/home/home';
-// import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
 
