@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 
-
+import { Keyboard } from '@ionic-native/keyboard';
 
 @IonicPage()
 @Component({
@@ -21,14 +21,14 @@ export class LoginPage {
 
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
-    private gplus: GooglePlus) {
-
+    private gplus: GooglePlus, private keyboard: Keyboard) {
+      keyboard.disableScroll(true);
       afAuth.auth.onAuthStateChanged(function(user) {
         if (user) {
           this.appUser = user;
           console.log("User:");
           console.log(this.appUser);
-          navCtrl.setRoot('MenuPage');
+          navCtrl.setRoot('ProfilePage');
 
         } else {
           // No user is signed in.

@@ -1,0 +1,44 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="orange-crush">
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input required [(ngModel)] ="profile.username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>How tall are you</ion-label>
+      <ion-input required type="number" [(ngModel)] ="profile.height"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>What is your weight</ion-label>
+      <ion-input required type="number" [(ngModel)] ="profile.weight"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>What is your age</ion-label>
+      <ion-input required pattern="[0-9]*" type="number" [(ngModel)] ="profile.age"></ion-input>
+  </ion-item>
+<br><br>
+  <ion-item>
+      <button ion-button clear block color="violet-like" (tap)='setProfile()'>Create Profile</button>
+    </ion-item>
+
+
+
+
+</ion-content>

@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook';
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 import { ComponentsModule } from '../components/components.module';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 // import { AboutPage } from '../pages/about/about';
 // import { ContactPage } from '../pages/contact/contact';
@@ -45,6 +46,7 @@ const firebaseConfig = {
     ComponentsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
