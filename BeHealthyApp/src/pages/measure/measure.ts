@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Modal,ModalOptions, ModalController} from 'ionic-angular';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @IonicPage()
@@ -9,7 +10,7 @@ import { IonicPage, NavController, NavParams, Modal,ModalOptions, ModalControlle
 })
 export class MeasurePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private afDatabase: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {

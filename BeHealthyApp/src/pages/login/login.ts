@@ -6,7 +6,8 @@ import { AngularFireAuth } from 'angularfire2/auth'
 import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { Profile } from '../../models/profile';
 
 
 @IonicPage()
@@ -17,7 +18,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class LoginPage {
   appUser: firebase.User;
   user= {} as User;
-
+  profileData: AngularFireObject<Profile>
 
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
@@ -29,13 +30,31 @@ export class LoginPage {
         console.log("User:");
         console.log(this.appUser);
         if (user) {
-          if(afDatabase.object(`profile/${user.uid}`)){
-            navCtrl.setRoot('MeasurePage');
-          }else{
-            navCtrl.setRoot('ProfilePage');
-          }
+          this.profileData = afDatabase.object(`profile/${user.uid}`).valueChanges().take(1).subscribe(
+            data =>{
+              console.log("heeeerewere:");
+              console.log(data);
+              if(data){
+                navCtrl.setRoot('MenuPage');
+              }else{
+                navCtrl.setRoot('ProfilePage');
+              }
+          });
+
+
+          console.log("USER PROFILE");
+          console.log(this.profileData);
+          console.log(this.profileData.username);
+
+
+
+
+
+
         } else {
           // No user is signed in.
+          navCtrl.setRoot('LoginPage');
+
         }
       });
 
