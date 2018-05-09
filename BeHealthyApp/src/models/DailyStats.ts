@@ -1,9 +1,9 @@
-import {Pressure} from './Pressure';
+import {CardioParams} from './CardioParams';
 import {OtherSympthoms} from './OtherSympthoms';
 export class DailyStats {
         measurement_id: string;
         datetime: Date;
-        pressure: Pressure;
+        cardio_params: {CardioParams};
         heart_rate: number;
         other_sympthoms: OtherSympthoms;
     }

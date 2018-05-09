@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { CardioParams } from '../../models/CardioParams';
 
 /**
  * Generated class for the AddMeasureModalPage page.
@@ -15,6 +16,8 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 })
 export class AddMeasureModalPage {
 
+  cardioParams= {} as CardioParams;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
   }
 
@@ -24,11 +27,11 @@ export class AddMeasureModalPage {
   }
 
   closeModal() {
-    // const data = {
-    //   name: 'John Doe',
-    //   occupation: 'Milkman'
-    // };
-    // this.view.dismiss(data);
     this.view.dismiss();
-}
+  }
+
+  addMeasure(){
+    // this.view.dismiss(cardioParams);
+  }
+
 }

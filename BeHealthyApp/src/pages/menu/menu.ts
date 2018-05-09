@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth'
 import { ChartPage } from '../chart/chart';
 import { LoginPage } from '../login/login';
 import { AuthorsPage } from '../authors/authors';
+import { ProfilePage } from '../profile/profile';
 
 
 export interface PageInterface{
@@ -33,7 +34,9 @@ export class MenuPage {
     {title:'History', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'md-clock'},
     {title:'Map', pageName: 'MapPage', icon: 'map'},
     {title:'Chart', pageName: 'ChartPage', icon: 'md-stats'},
+    {title:'Profile', pageName:'ProfilePage', icon:'md-contact'},
     {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
+
 
   ]
 
