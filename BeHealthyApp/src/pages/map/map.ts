@@ -57,4 +57,8 @@ export class MapPage {
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
   }
 
+  async showHospitalsOnTheMap(){
+    /// ...
+  }
+
 }

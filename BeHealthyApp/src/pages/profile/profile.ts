@@ -41,13 +41,13 @@ export class ProfilePage {
   async setProfile(){
     if(this.profile.username && this.profile.height && this.profile.weight && this.profile.age){
       this.afAuth.authState.take(1).subscribe(auth=>{
-        this.afDatabase.list(`profile/${auth.uid}`).push(this.profile)
+        this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
             .then(()=>{
               this.navCtrl.setRoot('MenuPage');
              });
 
 
-      })
+      });
     }else{
       alert("Invalid data ");
     }

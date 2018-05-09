@@ -78,7 +78,8 @@
       "cordova-plugin-facebook4": {
         "APP_ID": "592576817807571",
         "APP_NAME": "BeHealthy"
-      }
+      },
+      "ionic-plugin-keyboard": {}
     },
     "platforms": [
       "android"

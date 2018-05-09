@@ -6,8 +6,8 @@ import { AngularFireAuth } from 'angularfire2/auth'
 import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { AngularFireDatabase } from 'angularfire2/database';
 
-import { Keyboard } from '@ionic-native/keyboard';
 
 @IonicPage()
 @Component({
@@ -21,15 +21,19 @@ export class LoginPage {
 
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
-    private gplus: GooglePlus, private keyboard: Keyboard) {
-      keyboard.disableScroll(true);
-      afAuth.auth.onAuthStateChanged(function(user) {
-        if (user) {
-          this.appUser = user;
-          console.log("User:");
-          console.log(this.appUser);
-          navCtrl.setRoot('ProfilePage');
+    private gplus: GooglePlus, private afDatabase: AngularFireDatabase) {
 
+
+      afAuth.auth.onAuthStateChanged(function(user) {
+        this.appUser = user;
+        console.log("User:");
+        console.log(this.appUser);
+        if (user) {
+          if(afDatabase.object(`profile/${user.uid}`)){
+            navCtrl.setRoot('MeasurePage');
+          }else{
+            navCtrl.setRoot('ProfilePage');
+          }
         } else {
           // No user is signed in.
         }
@@ -40,6 +44,7 @@ export class LoginPage {
 
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad LoginPage');
   }
 

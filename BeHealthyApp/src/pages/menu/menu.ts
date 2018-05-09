@@ -46,7 +46,7 @@ export class MenuPage {
 
   ionViewDidLoad() {
     try{
-      this.afAuth.authState.subscribe(data => {
+      this.afAuth.authState.take(1).subscribe(data => {
         if(data.email && data.uid){
           console.log('logged in: ' + data);
         }else{
