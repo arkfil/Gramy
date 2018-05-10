@@ -18,19 +18,19 @@ import { Profile } from '../../models/profile';
 export class LoginPage {
   appUser: firebase.User;
   user= {} as User;
-  profileData: AngularFireObject<Profile>
+  // profileData: AngularFireObject<Profile>
 
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
     private gplus: GooglePlus, private afDatabase: AngularFireDatabase) {
 
 
-      afAuth.auth.onAuthStateChanged(function(user) {
+      afAuth.auth.onAuthStateChanged((user)=> {
         this.appUser = user;
         console.log("User:");
         console.log(this.appUser);
         if (user) {
-          this.profileData = afDatabase.object(`profile/${user.uid}`).valueChanges().take(1).subscribe(
+          afDatabase.object(`profile/${user.uid}`).valueChanges().take(1).subscribe(
             data =>{
               console.log("heeeerewere:");
               console.log(data);
@@ -43,8 +43,8 @@ export class LoginPage {
 
 
           console.log("USER PROFILE");
-          console.log(this.profileData);
-          console.log(this.profileData.username);
+          // console.log(this.profileData);
+          // console.log(this.profileData.username);
 
 
 

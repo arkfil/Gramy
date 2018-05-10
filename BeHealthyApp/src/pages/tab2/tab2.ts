@@ -12,7 +12,7 @@ import { CardioParams } from '../../models/CardioParams';
   templateUrl: 'tab2.html',
 })
 export class Tab2Page {
-  measures: IterableIterator<CardioParams>;
+  measures: Array<CardioParams>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase) {
     this.afAuth.authState.take(1).subscribe(auth=>{

@@ -19,6 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Geolocation } from '@ionic-native/geolocation'
+import { MenuPage } from '../pages/menu/menu';
 
 
 const firebaseConfig = {
@@ -33,8 +34,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
-
+    LoginPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -47,8 +48,8 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
-
+    LoginPage,
+    MenuPage
   ],
   providers: [
     GooglePlus,
