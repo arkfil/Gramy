@@ -16,11 +16,32 @@
 
 <ion-content>
 
+
+      <ion-card *ngFor="let measure of measures | async">
+          <ion-card-content>
+            <ion-card-title>
+              Measure
+            </ion-card-title>
+            <p>
+                Systolic pressure: {{measure.systolic_pressure}}
+            </p>
+            <p>
+                Diastolic pressure: {{measure.diastolic_pressure}}
+            </p>
+            <p>
+              Pulse: {{measure.pulse}}
+            </p>
+          </ion-card-content>
+       </ion-card>
+
+
+
+<!--
     <ion-card>
         <ion-card-content>
           <ion-card-title>
-            Nine Inch Nails Live
-            </ion-card-title>
+            Measure
+          </ion-card-title>
           <p>
             The most popular industrial group ever, and largely
             responsible for bringing the music to a mass audience.
@@ -50,34 +71,8 @@
               responsible for bringing the music to a mass audience.
             </p>
           </ion-card-content>
-        </ion-card>
+        </ion-card> -->
 
-
-        <ion-card>
-
-            <ion-card-content>
-                <ion-card-title>
-                  Nine Inch Nails Live
-                  </ion-card-title>
-                <p>
-                  The most popular industrial group ever, and largely
-                  responsible for bringing the music to a mass audience.
-                </p>
-              </ion-card-content>
-            </ion-card>
-
-            <ion-card>
-
-                <ion-card-content>
-                    <ion-card-title>
-                      Nine Inch Nails Live
-                      </ion-card-title>
-                    <p>
-                      The most popular industrial group ever, and largely
-                      responsible for bringing the music to a mass audience.
-                    </p>
-                  </ion-card-content>
-                </ion-card>
 
 
 </ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Modal,ModalOptions, ModalController} from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { CardioParams } from '../../models/CardioParams';
 
 
 @IonicPage()
@@ -11,6 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class MeasurePage {
   userId: string;
+  cardioParams: CardioParams;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController,
     private afDatabase: AngularFireDatabase, private afAuth : AngularFireAuth) {
@@ -38,23 +40,35 @@ export class MeasurePage {
       enableBackdropDismiss: false
     };
 
-    // const myModalData = {
-    //   name: 'Paul Halliday',
-    //   occupation: 'Developer'
-    // };
 
-    let modal = this.modalCtrl.create('AddMeasureModalPage',myModalOptions);
-
+    let modal: Modal = this.modalCtrl.create('AddMeasureModalPage', myModalOptions);
     modal.present();
 
     modal.onDidDismiss((data) => {
-      console.log("I have dismissed.");
+      console.log("Modal have dismissed.");
       console.log(data);
+
     });
 
     modal.onWillDismiss((data) => {
-      console.log("I'm about to dismiss");
+      console.log("Modal is about to dismiss");
       console.log(data);
-});
+      this.cardioParams = <CardioParams>data;
+      this.setMeasure(this.cardioParams);
+    });
+  }
+
+  async setMeasure(cardioParams){
+      this.afAuth.authState.take(1).subscribe(auth=>{
+        this.afDatabase.list(`measures/${auth.uid}`).push(cardioParams)
+        .then(()=>{
+            // Nothing
+            // TODO
+            console.log("SAVED MEASURE IN DB");
+          });
+
+
+      });
+
   }
 }
