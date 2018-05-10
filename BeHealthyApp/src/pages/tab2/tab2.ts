@@ -15,7 +15,7 @@ export class Tab2Page {
   measures: Array<CardioParams>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase) {
-
+    this.measures=[];
   }
 
 
@@ -27,10 +27,19 @@ export class Tab2Page {
           console.log("heeeerewere:");
           console.log(data);
           if(data){
-            this.measures = data.values.arguments;
             console.log("Measures in history");
             console.log(this.measures);
-            console.log(data.values.arguments[0]);
+
+            data.forEach(item => {
+                  this.measures.push(<CardioParams>item);
+            });
+
+            console.log(this.measures);
+
+
+
+
+
           }else{
             //something else
           }
