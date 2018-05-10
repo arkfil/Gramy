@@ -29,21 +29,23 @@ export class MyApp {
         console.log("Again");
         if(auth.uid){
           this.rootPage = MenuPage;
+
         }else{
           this.rootPage= LoginPage;
+
         }
       });
 
 
 
 
+      splashScreen.hide();
 
-      statusBar.overlaysWebView(true);
+      // statusBar.overlaysWebView(true);
 
 // set status bar to white
       statusBar.backgroundColorByHexString('#d54e07');
 
-      splashScreen.hide();
     });
   }
 }

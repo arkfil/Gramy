@@ -15,8 +15,14 @@ export class Tab2Page {
   measures: Array<CardioParams>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase) {
+
+  }
+
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Tab2Page');
     this.afAuth.authState.take(1).subscribe(auth=>{
-      afDatabase.list(`measures/${auth.uid}`).valueChanges().take(1).subscribe(
+      this.afDatabase.list(`measures/${auth.uid}`).valueChanges().take(1).subscribe(
         data =>{
           console.log("heeeerewere:");
           console.log(data);
@@ -24,16 +30,12 @@ export class Tab2Page {
             this.measures = data.values.arguments;
             console.log("Measures in history");
             console.log(this.measures);
+            console.log(data.values.arguments[0]);
           }else{
             //something else
           }
       });
     });
-  }
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Tab2Page');
   }
 
 }
