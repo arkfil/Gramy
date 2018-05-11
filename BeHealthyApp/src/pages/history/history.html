@@ -1,0 +1,40 @@
+
+<ion-header>
+
+
+  <ion-navbar color="orange-crush">
+      <ion-buttons left>
+          <button  icon-only ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>History of measures</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+      <ion-card *ngFor="let measure of measures ">
+          <ion-card-content>
+            <ion-card-title>
+              Measure
+            </ion-card-title>
+            <p>
+                Systolic pressure: {{measure.systolic_pressure}}
+            </p>
+            <p>
+                Diastolic pressure: {{measure.diastolic_pressure}}
+            </p>
+            <p>
+              Pulse: {{measure.pulse}}
+            </p>
+          </ion-card-content>
+       </ion-card>
+
+
+
+
+</ion-content>
