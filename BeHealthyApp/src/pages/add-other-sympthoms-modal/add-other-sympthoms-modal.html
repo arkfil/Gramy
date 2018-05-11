@@ -13,12 +13,27 @@
 
 
 <ion-content padding>
+<h1>Add sympthom:</h1>
+<br><br>
+  <!-- <ion-item> -->
+    <!-- <ion-label floating>Name</ion-label>
+    <ion-input large required type="text" [(ngModel)]="otherSympthom.name"></ion-input> -->
+    <ion-list>
+        <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-select [(ngModel)]="otherSympthom.name">
+            <ion-option value="Headache">Headache</ion-option>
+            <ion-option value="Stomach Ache">Stomach Ache</ion-option>
+            <ion-option value="Stroak">Stroak</ion-option>
+            <ion-option value="Dizziness">Dizziness</ion-option>
+            <ion-option value="Chest pain">Chest pain</ion-option>
+            <ion-option value="Other">Other</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+<!-- </ion-item> -->
 
 
-  <ion-item>
-    <ion-label floating>Name</ion-label>
-    <ion-input large required type="text" [(ngModel)]="otherSympthom.name"></ion-input>
-</ion-item>
 <br>
 
 <ion-item>
@@ -27,10 +42,13 @@
 </ion-item>
 
 
-  <br>
+<br>
 <ion-item>
-  <ion-label floating>Intensity level</ion-label>
-  <ion-input large required type="number" [(ngModel)]="otherSympthom.intensity"></ion-input>
+  <ion-label>Intensity level</ion-label>
+  <ion-range min="1" max="10" [(ngModel)]="intensity" color="alizarin">
+      <ion-label range-left>-1</ion-label>
+      <ion-label range-right>10</ion-label>
+    </ion-range>
 </ion-item>
 
 
