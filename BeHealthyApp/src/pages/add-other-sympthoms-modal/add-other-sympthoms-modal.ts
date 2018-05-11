@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { OtherSympthoms } from '../../models/OtherSympthoms';
 
 
 @IonicPage()
@@ -9,6 +10,9 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class AddOtherSympthomsModalPage {
 
+  otherSympthom= {} as OtherSympthoms;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
   }
 
@@ -17,6 +21,9 @@ export class AddOtherSympthomsModalPage {
   }
 
   addMeasure(){
+    this.otherSympthom.date = new Date().getTime();
+
+    this.view.dismiss(this.otherSympthom);
 
   }
 

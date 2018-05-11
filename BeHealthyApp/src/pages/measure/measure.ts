@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Modal,ModalOptions, ModalControlle
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { CardioParams } from '../../models/CardioParams';
+import { OtherSympthoms } from '../../models/OtherSympthoms';
 
 
 @IonicPage()
@@ -13,6 +14,7 @@ import { CardioParams } from '../../models/CardioParams';
 export class MeasurePage {
   userId: string;
   cardioParams: CardioParams;
+  otherSympthoms: OtherSympthoms
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController,
     private afDatabase: AngularFireDatabase, private afAuth : AngularFireAuth) {
@@ -35,7 +37,7 @@ export class MeasurePage {
     console.log('ionViewDidLoad MeasurePage');
   }
 
-  presentOtherDeseasesModal(){
+  presentOtherSympthomsModal(){
     const myModalOptions: ModalOptions = {
       enableBackdropDismiss: false
     };
@@ -53,7 +55,8 @@ export class MeasurePage {
       console.log("Modal is about to dismiss");
       console.log(data);
 
-
+      this.otherSympthoms = <OtherSympthoms>data;
+      this.setOtherSymthoms(this.otherSympthoms);
     });
 
   }
@@ -70,6 +73,7 @@ export class MeasurePage {
     modal.onDidDismiss((data) => {
       console.log("Modal have dismissed.");
       console.log(data);
+
 
     });
 
@@ -89,9 +93,17 @@ export class MeasurePage {
             // TODO
             console.log("SAVED MEASURE IN DB");
           });
-
-
       });
+  }
 
+  async setOtherSymthoms(otherSympthom){
+    this.afAuth.authState.take(1).subscribe(auth=>{
+      this.afDatabase.list(`sympthoms/${auth.uid}`).push(otherSympthom)
+      .then(()=>{
+          // Nothing
+          // TODO
+          console.log("SAVED DESEASE IN DB");
+        });
+    });
   }
 }

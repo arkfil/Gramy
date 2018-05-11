@@ -26,6 +26,7 @@ export class AddMeasureModalPage {
   }
 
   addMeasure(){
+    this.cardioParams.date = new Date().getTime();
      this.view.dismiss(this.cardioParams);
    // this.view.dismiss();
 

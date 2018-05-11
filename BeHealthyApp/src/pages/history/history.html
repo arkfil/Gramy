@@ -8,31 +8,75 @@
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-buttons>
-    <ion-title>History of measures</ion-title>
-  </ion-navbar>
+    <ion-title>History</ion-title>
 
+
+
+
+
+  </ion-navbar>
 </ion-header>
 
 
 <ion-content>
 
 
-      <ion-card *ngFor="let measure of measures ">
-          <ion-card-content>
-            <ion-card-title>
-              Measure
-            </ion-card-title>
-            <p>
-                Systolic pressure: {{measure.systolic_pressure}}
-            </p>
-            <p>
-                Diastolic pressure: {{measure.diastolic_pressure}}
-            </p>
-            <p>
-              Pulse: {{measure.pulse}}
-            </p>
-          </ion-card-content>
-       </ion-card>
+  <ion-slides pager paginationType="bullets">
+        <ion-slide style="height: auto;">
+            <ion-content>
+
+            <ion-card *ngFor="let measure of measures ">
+              <ion-card-content>
+                <ion-card-title>
+                  Measure date: {{measure.date}}
+                </ion-card-title>
+                <p>
+                    Systolic pressure: {{measure.systolic_pressure}}
+                </p>
+                <p>
+                    Diastolic pressure: {{measure.diastolic_pressure}}
+                </p>
+                <p>
+                  Pulse: {{measure.pulse}}
+                </p>
+              </ion-card-content>
+           </ion-card>
+
+    </ion-content>
+
+    </ion-slide>
+
+    <ion-slide>
+<ion-content>
+
+    <ion-card *ngFor="let sympthom of sympthoms ">
+        <ion-card-content>
+          <ion-card-title>
+            Day noted: {{sympthom.date}}
+          </ion-card-title>
+          <p>
+              Name: {{sympthom.name}}
+          </p>
+          <p>
+              Intensity: {{sympthom.intensity}}
+          </p>
+          <p>
+              Additionals: {{sympthom.description}}
+          </p>
+        </ion-card-content>
+     </ion-card>
+
+</ion-content>
+
+    </ion-slide>
+
+
+  </ion-slides>
+
+
+
+
+
 
 
 

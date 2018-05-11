@@ -17,20 +17,20 @@
 
   <ion-item>
     <ion-label floating>Name</ion-label>
-    <ion-input large required type="text"></ion-input>
+    <ion-input large required type="text" [(ngModel)]="otherSympthom.name"></ion-input>
 </ion-item>
 <br>
 
 <ion-item>
   <ion-label floating>Description</ion-label>
-  <ion-input large required type="text" ></ion-input>
+  <ion-input large required type="text" [(ngModel)]="otherSympthom.description"></ion-input>
 </ion-item>
 
 
   <br>
 <ion-item>
   <ion-label floating>Intensity level</ion-label>
-  <ion-input large required type="number"></ion-input>
+  <ion-input large required type="number" [(ngModel)]="otherSympthom.intensity"></ion-input>
 </ion-item>
 
 

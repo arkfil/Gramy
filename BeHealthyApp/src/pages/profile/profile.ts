@@ -40,18 +40,7 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    // try{
-    //   this.afAuth.authState.subscribe(data => {
-    //     if(data.email && data.uid){
-    //       console.log('logged in: ' + data);
-    //     }else{
-    //       console.log('should do something to get rid of the user! He is not logged in!');
-    //     }
-    //   });
-    //   console.log('ionViewDidLoad Menu');
-    // }catch(e){
 
-    // }
 
     console.log('ionViewDidLoad ProfilePage');
   }
