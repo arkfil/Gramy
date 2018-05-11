@@ -36,6 +36,25 @@ export class MeasurePage {
   }
 
   presentOtherDeseasesModal(){
+    const myModalOptions: ModalOptions = {
+      enableBackdropDismiss: false
+    };
+
+    let modal: Modal = this.modalCtrl.create('AddOtherSympthomsModalPage', myModalOptions);
+    modal.present();
+
+    modal.onDidDismiss((data) => {
+      console.log("Modal have dismissed.");
+      console.log(data);
+
+    });
+
+    modal.onWillDismiss((data) => {
+      console.log("Modal is about to dismiss");
+      console.log(data);
+
+
+    });
 
   }
 

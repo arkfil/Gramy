@@ -1,18 +1,44 @@
-<!--
-  Generated template for the AddOtherSympthomsModalPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>add_other_sympthoms_modal</ion-title>
+  <ion-navbar color="orange-crush">
+    <ion-title>Add other sytmphom</ion-title>
+
+    <ion-buttons end>
+      <button color="light" ion-button (click)="closeModal()">Cancel</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+
+  <ion-item>
+    <ion-label floating>Systolic pressure</ion-label>
+    <ion-input style="color:danger;" large required type="number"></ion-input>
+</ion-item>
+<br>
+
+<ion-item>
+  <ion-label floating>Name</ion-label>
+  <ion-input  style="color:danger;" large required type="text" ></ion-input>
+</ion-item>
+
+
+  <br>
+<ion-item>
+  <ion-label floating>Intensity level</ion-label>
+  <ion-input required type="number"></ion-input>
+</ion-item>
+
+
+<br><br><br>
+  <button icon-start ion-button large block color="secondary" round (tap)='addMeasure()'>
+      <ion-icon name="md-add"></ion-icon> Add
+  </button>
+
+
 
 </ion-content>

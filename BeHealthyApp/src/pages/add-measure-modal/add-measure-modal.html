@@ -2,6 +2,7 @@
 
   <ion-navbar color="orange-crush">
     <ion-title>Add new reading</ion-title>
+
     <ion-buttons end>
       <button color="light" ion-button (click)="closeModal()">Cancel</button>
     </ion-buttons>
@@ -22,11 +23,8 @@
          <ion-icon class="her" color="danger" ios="md-heart" md="md-heart"></ion-icon>
       </div>
 
-    <ion-item>
-        <ion-label floating>Systolic pressure</ion-label>
-        <ion-input style="color:danger;" large required type="number" [(ngModel)] ="cardioParams.systolic_pressure"></ion-input>
-    </ion-item>
-<br>
+
+<br><br>
 
     <ion-item>
       <ion-label floating>Diastolic pressure</ion-label>
@@ -39,9 +37,13 @@
       <ion-label floating>Pulse</ion-label>
       <ion-input  style="color:danger;" required type="number" [(ngModel)] ="cardioParams.pulse"></ion-input>
     </ion-item>
+<br>
+    <ion-item>
+      <ion-label floating>Notes</ion-label>
+      <ion-input style="color:danger;" large required type="number" [(ngModel)] ="cardioParams.systolic_pressure"></ion-input>
+    </ion-item>
 
-
-<br><br><br>
+<br><br><br><br><br>
       <button icon-start ion-button large block color="danger" round (tap)='addMeasure()'>
           <ion-icon name="md-add"></ion-icon> Add
       </button>
