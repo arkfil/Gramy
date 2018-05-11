@@ -18,6 +18,13 @@
   <h1>Basic info here, BMI, last measure, measures i comparison to the other ppl</h1>
 
   <ion-fab bottom right padding>
-    <button ion-fab color="orange-crush-darker" (tap)="presentModal()"><ion-icon name="add"></ion-icon></button>
+    <!-- <button ion-fab color="orange-crush-darker" (tap)="presentModal()"><ion-icon name="add"></ion-icon></button> -->
+    <button ion-fab color="orange-crush-darker"><ion-icon name="add"></ion-icon></button>
+
+    <ion-fab-list padding side="left">
+      <button ion-fab color="alizarin" (tap)="presentCardioModal()"><ion-icon name="md-heart"></ion-icon></button>
+      <button ion-fab color="secondary" (tap)="presentOtherDeseasesModal()"><ion-icon name="md-medkit"></ion-icon></button>
+
+    </ion-fab-list>
   </ion-fab>
 </ion-content>

@@ -35,7 +35,11 @@ export class MeasurePage {
     console.log('ionViewDidLoad MeasurePage');
   }
 
-  presentModal() {
+  presentOtherDeseasesModal(){
+
+  }
+
+  presentCardioModal() {
     const myModalOptions: ModalOptions = {
       enableBackdropDismiss: false
     };
