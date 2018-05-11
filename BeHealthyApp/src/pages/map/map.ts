@@ -62,9 +62,9 @@ export class MapPage {
 
     service.nearbySearch({
         location: {lat:this.currentLat, lng: this.currentLng},
-        radius: 20000,
-        rankby:'distance',
-        keyword: ['lekarz','przychodnia','szpital']
+        radius: 50000,
+        rankby: 'distance',
+        name: 'lekarz|przychodnia|szpital|kardiolog|kardiologia|doktor'
       }, (results,status,pagination) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (let i = 0; i < results.length; i++) {

@@ -53,7 +53,7 @@ export class LoginPage {
 
         } else {
           // No user is signed in.
-          navCtrl.setRoot('LoginPage');
+          // navCtrl.setRoot('LoginPage');
 
         }
       });

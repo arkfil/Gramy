@@ -20,6 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Geolocation } from '@ionic-native/geolocation'
 import { MenuPage } from '../pages/menu/menu';
+import { LoginPageModule } from '../pages/login/login.module';
+import { MenuPageModule } from '../pages/menu/menu.module';
 
 
 const firebaseConfig = {
@@ -33,9 +35,9 @@ const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    MyApp,
-    LoginPage,
-    MenuPage
+    MyApp//,
+    // LoginPage,
+    // MenuPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,9 @@ const firebaseConfig = {
     ComponentsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    LoginPageModule,
+    MenuPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -27,7 +27,7 @@ export class MyApp {
         console.log('Starting app');
         console.log(auth);
         console.log("Again");
-        if(auth.uid){
+        if(auth && auth.uid){
           this.rootPage = MenuPage;
 
         }else{
@@ -39,7 +39,7 @@ export class MyApp {
 
 
 
-      splashScreen.hide();
+      // splashScreen.hide();
 
       // statusBar.overlaysWebView(true);
 
