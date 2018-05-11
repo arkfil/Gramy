@@ -62,7 +62,8 @@ export class MapPage {
 
     service.nearbySearch({
         location: {lat:this.currentLat, lng: this.currentLng},
-        radius: 60000,
+        radius: 20000,
+        rankby:'distance',
         keyword: ['lekarz','przychodnia','szpital']
       }, (results,status,pagination) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -94,6 +95,10 @@ export class MapPage {
   async wait(){
     while(this.map==undefined){}
     this.showHospitalsOnTheMap();
+    new google.maps.Marker({
+      map: this.map,
+      position: this.map.center
+    });
   }
 
 
