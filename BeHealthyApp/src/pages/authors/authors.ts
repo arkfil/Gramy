@@ -15,6 +15,9 @@ export class AuthorsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AuthorsPage');
+
+
+
   }
 
 }
