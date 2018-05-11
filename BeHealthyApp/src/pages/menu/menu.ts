@@ -31,7 +31,7 @@ export class MenuPage {
   // pages: Array<{title: string, component: any}>;
   pages: PageInterface[] = [
     {title:'Measure', pageName: 'TabsPage', tabComponent: 'MeasurePage', index: 0, icon: 'md-analytics'},
-    {title:'History', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'md-clock'},
+    {title:'History', pageName: 'TabsPage', tabComponent: 'HistoryPage', index: 1, icon: 'md-clock'},
     {title:'Map', pageName: 'MapPage', icon: 'map'},
     {title:'Chart', pageName: 'ChartPage', icon: 'md-stats'},
     {title:'Profile', pageName:'ProfilePage', icon:'md-contact'},
