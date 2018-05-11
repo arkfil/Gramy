@@ -11,9 +11,10 @@ import { OtherSympthoms } from '../../models/OtherSympthoms';
 export class AddOtherSympthomsModalPage {
 
   otherSympthom= {} as OtherSympthoms;
-
+  intensity: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+    this.intensity="1";
   }
 
   ionViewDidLoad() {
@@ -22,7 +23,7 @@ export class AddOtherSympthomsModalPage {
 
   addMeasure(){
     this.otherSympthom.date = new Date().getTime();
-
+    this.otherSympthom.intensity = Number(this.intensity);
     this.view.dismiss(this.otherSympthom);
 
   }
