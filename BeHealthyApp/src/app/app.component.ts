@@ -2,16 +2,13 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 // import { TabsPage } from '../pages/tabs/tabs';
-
 import { LoginPage } from '../pages/login/login';
 import { DailyStats } from '../models/DailyStats';
 // import { AngularFireAuth } from 'angularfire2/auth';
 import { MenuPage } from '../pages/menu/menu';
 import { AngularFireAuth } from 'angularfire2/auth';
 // import * as firebase from 'firebase/app';
-
 
 @Component({
   templateUrl: 'app.html'

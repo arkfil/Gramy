@@ -1,49 +1,38 @@
 <ion-header>
-
   <ion-navbar color="orange-crush">
-    <ion-title>Add new reading</ion-title>
+    <ion-title>Add your measurements</ion-title>
     <ion-buttons end>
       <button color="light" ion-button (click)="closeModal()">Cancel</button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-<br>
-      <div style="margin-left: auto;
-                  margin-right: auto;
-                  display: block;
-                  width:100%;
-                  font-size: 75px;
-                  text-align: center;
-                  ">
-         <ion-icon class="her" color="danger" ios="md-heart" md="md-heart"></ion-icon>
-      </div>
+  <br>
+  <div class="measure-heart">
+      <ion-icon class="her" color="danger" ios="md-heart" md="md-heart"></ion-icon>
+  </div>
 
-    <ion-item>
-        <ion-label floating>Systolic pressure</ion-label>
-        <ion-input style="color:danger;" large required type="number" [(ngModel)] ="cardioParams.systolic_pressure"></ion-input>
-    </ion-item>
-<br>
+  <ion-item>
+      <ion-label floating>Systolic pressure</ion-label>
+      <ion-input style="color:danger;" large required type="number" pattern="[0-9]*" min="0" max="300" clearInput [(ngModel)] ="cardioParams.systolic_pressure"></ion-input>
+  </ion-item>
+  <br>
 
-    <ion-item>
-      <ion-label floating>Diastolic pressure</ion-label>
-      <ion-input  style="color:danger;" large required type="number" [(ngModel)] ="cardioParams.diastolic_pressure" ></ion-input>
-    </ion-item>
+  <ion-item>
+    <ion-label floating>Diastolic pressure</ion-label>
+    <ion-input  style="color:danger;" large required type="number" pattern="[0-9]*" min="0" max="300" clearInput [(ngModel)] ="cardioParams.diastolic_pressure" ></ion-input>
+  </ion-item>
 
+  <br>
+  <ion-item>
+    <ion-label floating>Pulse (beats per minute)</ion-label>
+    <ion-input  style="color:danger;" required type="number" pattern="[0-9]*" min="0" max="220" clearInput [(ngModel)] ="cardioParams.pulse"></ion-input>
+  </ion-item>
 
-      <br>
-    <ion-item>
-      <ion-label floating>Pulse</ion-label>
-      <ion-input  style="color:danger;" required type="number" [(ngModel)] ="cardioParams.pulse"></ion-input>
-    </ion-item>
-
-
-<br><br><br>
-      <button icon-start ion-button large block color="danger" round (tap)='addMeasure()'>
-          <ion-icon name="md-add"></ion-icon> Add
-      </button>
+  <br><br><br>
+  <button icon-start ion-button large block color="danger" round (tap)='addMeasure()'>
+      <ion-icon name="md-add"></ion-icon> Add
+  </button>
 
 </ion-content>
