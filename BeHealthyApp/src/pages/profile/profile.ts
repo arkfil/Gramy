@@ -51,8 +51,12 @@ export class ProfilePage {
             // showing succes toast on success
             let toast = this.toastCtrl.create({
               message: `Profile has been updated`,
-              duration: 1500,
-              position: "top"
+              duration: 2700,
+              position: "top",
+              showCloseButton: true,
+              closeButtonText: 'OK',
+              dismissOnPageChange: true,
+              cssClass: "toast-success"
             });
             toast.present();
 
@@ -68,7 +72,11 @@ export class ProfilePage {
       let toast = this.toastCtrl.create({
         message: `Some data is invalid. Profile has not been updated`,
         duration: 4500,
-        position: "top"
+        position: "top",
+        showCloseButton: true,
+        closeButtonText: 'Got it!',
+        dismissOnPageChange: true,
+        cssClass: "toast-failed"
       });
       toast.present();
     }

@@ -1,28 +1,22 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 import { Facebook } from '@ionic-native/facebook';
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 import { ComponentsModule } from '../components/components.module';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { Geolocation } from '@ionic-native/geolocation'
 import { MenuPage } from '../pages/menu/menu';
 import { LoginPageModule } from '../pages/login/login.module';
 import { MenuPageModule } from '../pages/menu/menu.module';
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyBvE1AMLqRSm-lMvPMwprcqfwk7sz5c0QQ",

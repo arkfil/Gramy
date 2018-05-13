@@ -1,16 +1,23 @@
-// http://ionicframework.com/docs/theming/
+.toast-success {
+  .toast-wrapper {
+    background: #009700;
+    opacity: 0.9;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .toast-message {
+    color: white;
+  }
+}
 
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+.toast-failed {
+  .toast-wrapper {
+    background: #b70a00;
+    opacity: 0.9;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .toast-message {
+    color: white;
+  }
+}
