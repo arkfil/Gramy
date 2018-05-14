@@ -1,5 +1,5 @@
 # BeHealthy app
-BeHealthy is a hybrid mobile app that helps users to take care of their health and be healthy.
+BeHealthy is a hybrid mobile application  that helps users to take care of their health and be healthy.
 ## Features:
   - Track your health routine: whether it symptoms, illness, pressure or pulse, you can track it all with our intuitive interface
   - Compare yourself to others: charts that help you to know how you stand out from the crowd
@@ -10,7 +10,7 @@ BeHealthy is a hybrid mobile app that helps users to take care of their health a
 ### Tech
 BeHealthy uses a number of projects to work properly:
 
-* [Ionic Framework] - a complete open-source SDK for hybrid mobile app development that is build on Angular
+* [Ionic Framework] - a complete open-source SDK for hybrid mobile application development that is build on Angular
 * [Apache Cordova] - a mobile application development framework (Android / iOS) 
 * [node.js] with npm - evented I/O for the backend
 * [JSLint] - a code quality tool that checks for problems in Javascript programs 
@@ -49,6 +49,7 @@ This mobile hybrid application was developed as part of a project for BAI subjec
 ### Authors
 
 Participants in aplication development:
+
 | Student | Github |
 | ------ | ------ |
 | **Arkadiusz Filipowski** | https://github.com/arkfil |
