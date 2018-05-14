@@ -12,13 +12,21 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label color="primary" floating>Username</ion-label>
+    <ion-label color="primary" floating>Your Username</ion-label>
     <ion-input required [(ngModel)] ="profile.username" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary">What is your gender</ion-label>
+    <ion-select [(ngModel)] ="profile.gender" clearInput>
+      <ion-option value="Male" >Male</ion-option>
+      <ion-option value="Female">Female</ion-option>
+    </ion-select>
   </ion-item>
   
   <ion-item>
-    <ion-label color="primary" floating>What is your phone number</ion-label>
-    <ion-input type=“tel” pattern="[0-9]*" maxlength=“9” [(ngModel)] ="profile.telephone" clearInput></ion-input>
+    <ion-label floating>What is your age</ion-label>
+    <ion-input required pattern="[0-9]*" type="number" [(ngModel)]="profile.age" min="0" max="150" clearInput></ion-input>
   </ion-item>
 
   <ion-item>
@@ -32,8 +40,8 @@
   </ion-item>
 
   <ion-item>
-      <ion-label floating>What is your age</ion-label>
-      <ion-input required pattern="[0-9]*" type="number" [(ngModel)] ="profile.age" min="0" max="150" clearInput></ion-input>
+    <ion-label color="primary" floating>What is your phone number</ion-label>
+    <ion-input type=“tel” pattern="[0-9]*" maxlength=“9” [(ngModel)]="profile.telephone" clearInput></ion-input>
   </ion-item>
 
   <br>

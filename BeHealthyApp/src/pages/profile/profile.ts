@@ -30,6 +30,7 @@ export class ProfilePage {
             this.profile.height = (<Profile>data).height;
             this.profile.username = (<Profile>data).username;
             this.profile.telephone = (<Profile>data).telephone;
+            this.profile.gender = (<Profile>data).gender;
           }else{
             this.profile_already_exists = false;
             //something
@@ -70,7 +71,7 @@ export class ProfilePage {
     }else{
       // showing invalid daata toast on success
       let toast = this.toastCtrl.create({
-        message: `Some data is invalid. Profile has not been updated`,
+        message: `Some data is invalid. \n Profile has not been updated!`,
         duration: 4500,
         position: "top",
         showCloseButton: true,

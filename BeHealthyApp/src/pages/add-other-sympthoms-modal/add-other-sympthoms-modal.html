@@ -1,62 +1,43 @@
-
 <ion-header>
-
   <ion-navbar color="orange-crush">
-    <ion-title>Add other sytmphom</ion-title>
-
+    <ion-title>Add your symptoms</ion-title>
     <ion-buttons end>
       <button color="light" ion-button (click)="closeModal()">Cancel</button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-<h1>Add sympthom:</h1>
+<h1>What's bothering you?</h1>
 <br><br>
-  <!-- <ion-item> -->
-    <!-- <ion-label floating>Name</ion-label>
-    <ion-input large required type="text" [(ngModel)]="otherSympthom.name"></ion-input> -->
-    <ion-list>
-        <ion-item>
-          <ion-label>Name</ion-label>
-          <ion-select [(ngModel)]="otherSympthom.name">
-            <ion-option value="Headache">Headache</ion-option>
-            <ion-option value="Stomach Ache">Stomach Ache</ion-option>
-            <ion-option value="Stroak">Stroak</ion-option>
-            <ion-option value="Dizziness">Dizziness</ion-option>
-            <ion-option value="Chest pain">Chest pain</ion-option>
-            <ion-option value="Other">Other</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-<!-- </ion-item> -->
-
-
+<ion-list>
+  <ion-item>
+    <ion-label>Select your illness</ion-label>
+    <ion-select required [(ngModel)]="otherSympthom.name">
+      <!-- <ion-option *ngFor="let illness of illnesses" [selected]="illness === 'Other'" [value]="illness">{{illness}}</ion-option> -->
+      <ion-option *ngFor="let illness of illnesses" [value]="illness">{{illness}}</ion-option> 
+    </ion-select>
+  </ion-item>
+</ion-list>
 <br>
 
 <ion-item>
-  <ion-label floating>Description</ion-label>
+  <ion-label floating>Short Description</ion-label>
   <ion-input large required type="text" [(ngModel)]="otherSympthom.description"></ion-input>
 </ion-item>
 
-
 <br>
 <ion-item>
-  <ion-label>Intensity level</ion-label>
+  <ion-label>Intensity level: {{intensity}}</ion-label>
   <ion-range min="1" max="10" [(ngModel)]="intensity" color="alizarin">
-      <ion-label range-left>-1</ion-label>
-      <ion-label range-right>10</ion-label>
-    </ion-range>
+    <ion-label range-left>1</ion-label>
+    <ion-label range-right>10</ion-label>
+  </ion-range>
 </ion-item>
-
 
 <br><br><br>
   <button icon-start ion-button large block color="secondary" round (tap)='addMeasure()'>
       <ion-icon name="md-add"></ion-icon> Add
   </button>
-
-
 
 </ion-content>

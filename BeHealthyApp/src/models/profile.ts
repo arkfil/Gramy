@@ -3,5 +3,6 @@ export interface Profile {
   telephone: number,
   height: number,
   weight: number,
-  age: number
+  age: number,
+  gender: string
 }
