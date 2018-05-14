@@ -51,10 +51,10 @@ This mobile hybrid application was developed as part of a project for BAI subjec
 Participants in aplication development:
 | Student | Github |
 | ------ | ------ |
-| Arkadiusz Filipowski | https://github.com/arkfil |
-| Agnieszka Szebla | [https://github.com/aszebla |
-| Mateusz Wrobel | [https://github.com/wrobelek1233 |
-| Artem Silin | [https://github.com/artemsln |
+| **Arkadiusz Filipowski** | https://github.com/arkfil |
+| **Agnieszka Szebla** | https://github.com/aszebla |
+| **Mateusz Wrobel** | https://github.com/wrobelek1233 |
+| **Artem Silin** | https://github.com/artemsln |
 
 
 
