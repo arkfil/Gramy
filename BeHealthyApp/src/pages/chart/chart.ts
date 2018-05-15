@@ -48,7 +48,8 @@ export class ChartPage {
     this.diastolicPressureDataPoints = new Array<ChartDataPoint>();
     this.pulseDataPoints = new Array<ChartDataPoint>();
 
-    this.afDatabase.list(`measures/${this.userId}`).valueChanges().take(1).subscribe(response => {
+    this.afDatabase.database.ref(`measures/${this.userId}`).orderByChild('date').limitToLast(7).once('value')
+    .then(response => {
         if (response) {
           this.mapDatabaseResponse(response);
           this.InitChart();
@@ -57,12 +58,13 @@ export class ChartPage {
   }
 
   private mapDatabaseResponse(measurements): void {
-    measurements.forEach(measurement => {
+    measurements.forEach(measurementItem => {
+      let measurement = measurementItem.val();
       let measureDate = new Date(measurement.date);
 
-      this.systolicPressureDataPoints.push(<ChartDataPoint>{ x: measureDate, y: <number>measurement.systolic_pressure });
-      this.diastolicPressureDataPoints.push(<ChartDataPoint>{ x: measureDate, y: <number>measurement.diastolic_pressure });
-      this.pulseDataPoints.push(<ChartDataPoint>{ x: measureDate, y: <number>measurement.pulse });
+      this.systolicPressureDataPoints.push(<ChartDataPoint>{ x: measureDate, y: Number(measurement.systolic_pressure) });
+      this.diastolicPressureDataPoints.push(<ChartDataPoint>{ x: measureDate, y: Number(measurement.diastolic_pressure) });
+      this.pulseDataPoints.push(<ChartDataPoint>{ x: measureDate, y: Number(measurement.pulse) });
     });
   }
 

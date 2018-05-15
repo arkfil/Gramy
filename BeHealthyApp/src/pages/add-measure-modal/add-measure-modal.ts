@@ -9,6 +9,7 @@ import { CardioParams } from '../../models/CardioParams';
 })
 export class AddMeasureModalPage {
 
+  inputDateTime : Date;
   cardioParams = {} as CardioParams;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController
@@ -16,6 +17,7 @@ export class AddMeasureModalPage {
   }
 
   ionViewDidLoad() {
+    this.inputDateTime = new Date(Date.now());
     console.log('ionViewDidLoad AddMeasureModalPage');
     //  const data = this.navParams.get('data');
   }
@@ -25,8 +27,9 @@ export class AddMeasureModalPage {
   }
 
   addMeasure(){
-    this.cardioParams.date = new Date().getTime();
-    if (this.cardioParams.diastolic_pressure !== undefined 
+    this.cardioParams.date = new Date(this.inputDateTime).getTime();
+    if ( this.cardioParams.date !== undefined
+      && this.cardioParams.diastolic_pressure !== undefined 
       && this.cardioParams.systolic_pressure !== undefined 
       && this.cardioParams.pulse !== undefined) {
       // showing succes toast on success
