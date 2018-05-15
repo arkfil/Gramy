@@ -29,7 +29,7 @@ export class AddMeasureModalPage {
     if (this.cardioParams.diastolic_pressure !== undefined 
       && this.cardioParams.systolic_pressure !== undefined 
       && this.cardioParams.pulse !== undefined) {
-      // showing succes toast on success
+      // showing toast-success on success
       let toast = this.toastCtrl.create({
         message: `Measurements have been added`,
         duration: 2700,
@@ -42,7 +42,7 @@ export class AddMeasureModalPage {
       toast.present();
       this.view.dismiss(this.cardioParams);
     } else {
-      // showing invalid daata toast on success
+      // showing toast-failed
       let toast = this.toastCtrl.create({
         message: `Measurements can't be added. \n Please enter them firstly!`,
         duration: 4500,

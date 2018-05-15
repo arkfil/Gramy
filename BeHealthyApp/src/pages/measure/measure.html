@@ -1,30 +1,22 @@
-
 <ion-header>
-
-
   <ion-navbar color="orange-crush">
-      <ion-buttons left>
-          <button icon-only ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
-        </ion-buttons>
+    <ion-buttons left>
+      <button icon-only ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Measure</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content>
-   <h1>Basic info here, BMI, last measures, measures and comparison to the other ppl</h1>
-
+  <h1>Basic info here, BMI, last measures, comparison to the other ppl</h1>
   <ion-fab bottom right padding>
     <!-- <button ion-fab color="orange-crush-darker" (tap)="presentModal()"><ion-icon name="add"></ion-icon></button> -->
     <button ion-fab color="orange-crush-darker"><ion-icon name="add"></ion-icon></button>
-
     <ion-fab-list padding side="left">
       <button ion-fab color="alizarin" (tap)="presentCardioModal()"><ion-icon name="md-heart"></ion-icon></button>
-      <button ion-fab color="secondary" (tap)="presentOtherSympthomsModal()"><ion-icon name="md-medkit"></ion-icon></button>
-
+      <button ion-fab color="secondary" (tap)="presentOtherSympthomsModal()"><ion-icon name="md-pulse"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

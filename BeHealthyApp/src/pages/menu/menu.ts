@@ -6,7 +6,6 @@ import { LoginPage } from '../login/login';
 import { AuthorsPage } from '../authors/authors';
 import { ProfilePage } from '../profile/profile';
 
-
 export interface PageInterface{
   title: string;
   pageName: string;
@@ -15,18 +14,14 @@ export interface PageInterface{
   icon: string;
 }
 
-
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'menu.html',
 })
 export class MenuPage {
-
   rootPage = 'TabsPage';
-
   @ViewChild(Nav) nav: Nav;
-
 
   // pages: Array<{title: string, component: any}>;
   pages: PageInterface[] = [
@@ -36,15 +31,9 @@ export class MenuPage {
     {title:'Chart', pageName: 'ChartPage', icon: 'md-stats'},
     {title:'Profile', pageName:'ProfilePage', icon:'md-contact'},
     {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
-
-
   ]
 
   constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams, ) {
-    // this.pages = [
-    //   { title: 'Chart Page', component: ChartPage  }
-    // ];
-
   }
 
   ionViewDidLoad() {

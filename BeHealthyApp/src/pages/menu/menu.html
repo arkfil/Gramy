@@ -1,5 +1,3 @@
-
-
 <ion-menu [content]="mycontent">
     <ion-header>
         <ion-toolbar color="orange-crush">
@@ -13,20 +11,17 @@
             <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
             {{ p.title }}
           </button>
-
-
       </ion-list>
-
     </ion-content>
 
     <ion-footer padding>
-      <button menuColose ion-item color="danger" (tap)="signOut()">
-        <ion-icon item-start name="md-log-out" color="light"></ion-icon>
+      <button menuColose ion-item full color="danger" (tap)="signOut()" id="btn-close">
+        <ion-icon item-left name="md-log-out" color="light"></ion-icon>
         Sign out
       </button>
     </ion-footer>
 
   </ion-menu>
 
-  <ion-nav #mycontent [root]="rootPage" swipeBackEnabled="true"></ion-nav>
+  <ion-nav #mycontent [root]="rootPage" swipeBackEnabled="false"></ion-nav>
 

@@ -1,11 +1,8 @@
 <ion-header>
-
   <ion-navbar color="orange-crush">
     <ion-title>Create new account</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <br><br><br><br>
@@ -13,21 +10,22 @@
     <ion-label>
       <ion-icon name="md-contact"></ion-icon>
     </ion-label>
-    <ion-input type="email"  placeholder="Email" value="" [(ngModel)]="user.email"></ion-input>
+    <ion-input type="email" placeholder="Email" value="" [(ngModel)]="user.email" clearInput required>
+    </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>
       <ion-icon name="md-cog"></ion-icon>
     </ion-label>
-    <ion-input type="password"  placeholder="Password" [(ngModel)]="user.password"></ion-input>
+    <ion-input type="password" required placeholder="Password" [(ngModel)]="user.password" clearInput></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>
       <ion-icon name="md-cog"></ion-icon>
     </ion-label>
-    <ion-input type="password"  placeholder="Repeat passoword" [(ngModel)]="user.repeated_password"></ion-input>
+    <ion-input type="password" required placeholder="Repeat passoword" [(ngModel)]="user.repeated_password" clearInput></ion-input>
   </ion-item>
 
   <br>

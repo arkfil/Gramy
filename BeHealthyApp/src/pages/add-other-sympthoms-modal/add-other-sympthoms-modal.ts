@@ -45,7 +45,7 @@ export class AddOtherSympthomsModalPage {
     this.otherSympthom.date = new Date().getTime();
     this.otherSympthom.intensity = Number(this.intensity);
     if (this.otherSympthom.name !== undefined) {
-      // showing succes toast on success
+      // showing toast-success on success
       let toast = this.toastCtrl.create({
         message: `Symptom has been added`,
         duration: 2700,
@@ -58,7 +58,7 @@ export class AddOtherSympthomsModalPage {
       toast.present();
       this.view.dismiss(this.otherSympthom);
     } else {
-      // showing invalid daata toast on success
+      // showing toast-failed
       let toast = this.toastCtrl.create({
         message: `Symptom can't be added. \n Please select illness firstly!`,
         duration: 4500,
