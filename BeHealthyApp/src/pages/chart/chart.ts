@@ -17,83 +17,47 @@ export class ChartPage {
   private chartContainerId: string = 'chartContainer'
   private chart: Chart;
 
-  private systolicPressureDataPoints: ChartDataPoint[];
-  private diastolicPressureDataPoints: ChartDataPoint[];
-  private pulseDataPoints: ChartDataPoint[];
+  private systolicPressureDataPoints: Array<ChartDataPoint>;
+  private diastolicPressureDataPoints: Array<ChartDataPoint>;
+  private pulseDataPoints: Array<ChartDataPoint>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth) {
 
-    try {
-      this.afAuth.authState.subscribe(data => {
-        if (data.email && data.uid) {
-          this.userId = data.uid;
-          console.log('logged in measure actv: ' + data);
-        } else {
-          console.log('should do something to get rid of the user! He is not logged in!');
-        }
-      });
-    } catch (e) {
-      console.log('could not get userId' + e)
-    }
-  }
+      this.afAuth.authState.take(1).subscribe(auth=>{
+        this.userId = auth.uid;});
+      }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChartPage');
-    
-    this.setChartData();
-    this.InitChart(this.chartContainerId);
-    this.chart.render();
+
+    this.renderChart();
+  }
+  
+  private renderChart(): void {
+    this.systolicPressureDataPoints = new Array<ChartDataPoint>();
+    this.diastolicPressureDataPoints = new Array<ChartDataPoint>();
+    this.pulseDataPoints = new Array<ChartDataPoint>();
+
+    this.afDatabase.list(`measures/${this.userId}`).valueChanges().take(1).subscribe(response => {
+        if (response) {
+          this.mapDatabaseResponse(response);
+
+          this.InitChart();
+        }
+      });
   }
 
-  private setChartData() : void {
-    this.systolicPressureDataPoints = [
-      { x: new Date(2017, 0, 7), y: 85.4 },
-      { x: new Date(2017, 0, 14), y: 92.7 },
-      { x: new Date(2017, 0, 21), y: 64.9 },
-      { x: new Date(2017, 0, 28), y: 58.0 },
-      { x: new Date(2017, 1, 4), y: 63.4 },
-      { x: new Date(2017, 1, 11), y: 69.9 },
-      { x: new Date(2017, 1, 18), y: 88.9 },
-      { x: new Date(2017, 1, 25), y: 66.3 },
-      { x: new Date(2017, 2, 4), y: 82.7 },
-      { x: new Date(2017, 2, 11), y: 60.2 },
-      { x: new Date(2017, 2, 18), y: 87.3 },
-      { x: new Date(2017, 2, 25), y: 98.5 }
-    ];
+  private mapDatabaseResponse(measurements): void {
+    measurements.forEach(measurement => {
+      let measureDate = new Date(measurement.date);
 
-    this.diastolicPressureDataPoints = [
-      { x: new Date(2017, 0, 7), y: 32.3 },
-      { x: new Date(2017, 0, 14), y: 33.9 },
-      { x: new Date(2017, 0, 21), y: 26.0 },
-      { x: new Date(2017, 0, 28), y: 15.8 },
-      { x: new Date(2017, 1, 4), y: 18.6 },
-      { x: new Date(2017, 1, 11), y: 34.6 },
-      { x: new Date(2017, 1, 18), y: 37.7 },
-      { x: new Date(2017, 1, 25), y: 24.7 },
-      { x: new Date(2017, 2, 4), y: 35.9 },
-      { x: new Date(2017, 2, 11), y: 12.8 },
-      { x: new Date(2017, 2, 18), y: 38.1 },
-      { x: new Date(2017, 2, 25), y: 42.4 }
-    ]
-
-    this.pulseDataPoints = [
-      { x: new Date(2017, 0, 7), y: 42.5 },
-      { x: new Date(2017, 0, 14), y: 44.3 },
-      { x: new Date(2017, 0, 21), y: 28.7 },
-      { x: new Date(2017, 0, 28), y: 22.5 },
-      { x: new Date(2017, 1, 4), y: 25.6 },
-      { x: new Date(2017, 1, 11), y: 45.7 },
-      { x: new Date(2017, 1, 18), y: 54.6 },
-      { x: new Date(2017, 1, 25), y: 32.0 },
-      { x: new Date(2017, 2, 4), y: 43.9 },
-      { x: new Date(2017, 2, 11), y: 26.4 },
-      { x: new Date(2017, 2, 18), y: 40.3 },
-      { x: new Date(2017, 2, 25), y: 54.2 }
-    ]
+      this.systolicPressureDataPoints.push({ x: measureDate, y: measurement.systolic_pressure });
+      this.diastolicPressureDataPoints.push({ x: measureDate, y: measurement.diastolic_pressure });
+      this.pulseDataPoints.push({ x: measureDate, y: measurement.pulse });
+    });
   }
 
-  private InitChart(chartContainerId: string): void {
+  private InitChart(): void {
     this.chart = new CanvasJS.Chart("chartContainer", {
       title: {
         text: "Daily statistics"
@@ -149,6 +113,8 @@ export class ChartPage {
         dataPoints: this.pulseDataPoints
       }]
     });
+
+    this.chart.render();
   }
 
   private toggleDataSeries(e) {
