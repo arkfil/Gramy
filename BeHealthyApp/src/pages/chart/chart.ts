@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import * as CanvasJS from '../../CanvasJS.js';
 import { Chart, ChartDataPoint } from 'canvasjs';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -14,7 +14,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class ChartPage {
 
   userId: string;
-  private chartContainerId: string = 'chartContainer'
   private chart: Chart;
 
   private systolicPressureDataPoints: Array<ChartDataPoint>;
@@ -22,21 +21,22 @@ export class ChartPage {
   private pulseDataPoints: Array<ChartDataPoint>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth) {
+    private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth,
+    private alertCtrl: AlertController) {
 
-      try {
-        this.afAuth.authState.subscribe(data => {
-          if (data.email && data.uid) {
-            this.userId = data.uid;
-            console.log('logged in measure actv: ' + data);
-          } else {
-            console.log('should do something to get rid of the user! He is not logged in!');
-          }
-        });
-      } catch (e) {
-        console.log('could not get userId' + e)
-      }
+    try {
+      this.afAuth.authState.subscribe(data => {
+        if (data.email && data.uid) {
+          this.userId = data.uid;
+          console.log('logged in measure actv: ' + data);
+        } else {
+          console.log('should do something to get rid of the user! He is not logged in!');
+        }
+      });
+    } catch (e) {
+      console.log('could not get userId' + e)
     }
+  }
 
   ionViewDidLoad() {
 
@@ -49,13 +49,24 @@ export class ChartPage {
     this.pulseDataPoints = new Array<ChartDataPoint>();
 
     this.afDatabase.database.ref(`measures/${this.userId}`).orderByChild('date').limitToLast(7).once('value')
-    .then(response => {
+      .then(response => {
         if (response) {
+          if (response.numChildren() < 1) {
+            this.raiseWarning('Enter measurement data.');
+            return;
+          }
           this.mapDatabaseResponse(response);
           this.InitChart();
+        } else {
+          this.raiseWarning();
         }
+      }).catch(error => {
+        console.log(error);
+        this.raiseWarning('Internal error.');
       });
   }
+
+
 
   private mapDatabaseResponse(measurements): void {
     measurements.forEach(measurementItem => {
@@ -135,6 +146,15 @@ export class ChartPage {
       e.dataSeries.visible = true;
     }
     e.chart.render();
+  }
+
+  private raiseWarning(subTitle : string = null) {
+    let alert = this.alertCtrl.create({
+      title: 'No data to present!',
+      subTitle: subTitle,
+      buttons: ['Ok']
+    });
+    alert.present();
   }
 
 
