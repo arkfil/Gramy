@@ -47,9 +47,7 @@ export class MenuPage {
       });
       console.log('ionViewDidLoad Menu');
     }catch(e){
-
     }
-
   }
 
   openPage(page: PageInterface) {

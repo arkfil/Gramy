@@ -61,9 +61,12 @@ export class HistoryPage {
 
           data.forEach(item => {
             let tmpMsr= {} as MeasureMapper;
+
             tmpMsr.date = new Date((<CardioParams>item).date).toDateString() + " " +
-             new Date((<CardioParams>item).date).getHours() + ":" +
-             new Date((<CardioParams>item).date).getMinutes();//.replace('T',' ');
+              new Date((<CardioParams>item).date).getHours() + ":" +
+              ((new Date((<CardioParams>item).date).getMinutes() < 10 ? '0' : '') +
+              new Date((<CardioParams>item).date).getMinutes());
+
             tmpMsr.pulse = (<CardioParams>item).pulse;
             tmpMsr.diastolic_pressure = (<CardioParams>item).diastolic_pressure;
             tmpMsr.systolic_pressure = (<CardioParams>item).systolic_pressure;
@@ -87,9 +90,12 @@ export class HistoryPage {
 
           data.forEach(item => {
             let tmpSpt= {} as SympthomMapper;
+
             tmpSpt.date = new Date((<OtherSympthoms>item).date).toDateString() + " " +
              new Date((<OtherSympthoms>item).date).getHours() + ":" +
-             new Date((<OtherSympthoms>item).date).getMinutes();//.toUTCString().replace('T',' ');
+              ((new Date((<OtherSympthoms>item).date).getMinutes() < 10 ? '0' : '') +
+              new Date((<OtherSympthoms>item).date).getMinutes());
+
             tmpSpt.intensity = (<OtherSympthoms>item).intensity;
             tmpSpt.name = (<OtherSympthoms>item).name;
             tmpSpt.description = (<OtherSympthoms>item).description;
