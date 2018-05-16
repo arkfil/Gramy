@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Platform } from 'ionic-angular';
+import { IonicPage, ToastController, NavController, NavParams, AlertController, LoadingController, Platform } from 'ionic-angular';
 import { User } from '../../models/user';
 
 import { AngularFireAuth } from 'angularfire2/auth'
@@ -22,8 +22,8 @@ export class LoginPage {
 
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
-    private gplus: GooglePlus, private afDatabase: AngularFireDatabase) {
-
+    private gplus: GooglePlus, private afDatabase: AngularFireDatabase, private alertCtrl: AlertController,
+    public toastCtrl: ToastController ) {
 
       afAuth.auth.onAuthStateChanged((user)=> {
         this.appUser = user;
@@ -43,54 +43,61 @@ export class LoginPage {
 
 
           console.log("USER PROFILE");
-          // console.log(this.profileData);
-          // console.log(this.profileData.username);
-
-
-
-
-
 
         } else {
           // No user is signed in.
           // navCtrl.setRoot('LoginPage');
-
         }
       });
-
   }
 
-
-
   ionViewDidLoad() {
-
     console.log('ionViewDidLoad LoginPage');
   }
 
   async loginWithEmailAndPassword(user: User){
-    let loading = this.loadingController.create({content : "Loging in ,please wait..."});
+    let loading = this.loadingController.create({content : "Logging in,please wait..."});
     try{
-      loading.present();
+      if(user.email && user.password) {
+        loading.present();
+        const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+        console.log(result);
 
-      const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-      console.log(result);
-      // this.appUser = result;
-      // if(result){
-      //   this.navCtrl.setRoot('MenuPage');
-      // }
+        setTimeout(() => {
+          loading.dismiss();
+        }, 1000);
 
-      loading.dismissAll();
+      } else {
+        let alert = this.alertCtrl.create({
+          title: "Invalid data",
+          subTitle: "Email and password shouldn't be empty!",
+          buttons: ['OK']
+        });
+        alert.present();
+      }
     } catch(e){
       console.log("Error while signing in with email and password, error: " + e);
-      loading.dismissAll();
-    }
+      // showing toast-failed
+      let toast = this.toastCtrl.create({
+        message: "Error while signing in with email and password. \n Please try again." ,
+        duration: 5500,
+        position: "top",
+        showCloseButton: true,
+        closeButtonText: 'Got it!',
+        dismissOnPageChange: true,
+        cssClass: "toast-failed"
+      });
+      toast.present();
 
+      setTimeout(() => {
+        loading.dismiss();
+      }, 2500);
+    }
   }
 
   registerPage(){
     this.navCtrl.push('RegisterPage');
   }
-
 
 /* Login with facebook */
   loginWithFacebook(){
@@ -165,5 +172,4 @@ async webGoogleLogin(): Promise<void>{
 
   }
 }
-
 }

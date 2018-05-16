@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Profile } from '../../models/profile';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
@@ -14,10 +14,10 @@ export class ProfilePage {
   profile = {} as Profile;
   profileData: AngularFireObject<Profile>;
   profile_already_exists: boolean;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth : AngularFireAuth,
-    private afDatabase: AngularFireDatabase, private alertController: AlertController, public toastCtrl: ToastController) {
-    this.profile_already_exists=false;
+    private afDatabase: AngularFireDatabase, public toastCtrl: ToastController) {
+    this.profile_already_exists = false;
     this.afAuth.authState.take(1).subscribe(auth=>{
       afDatabase.object(`profile/${auth.uid}`).valueChanges().take(1).subscribe(
         data =>{
@@ -44,12 +44,13 @@ export class ProfilePage {
   }
 
   async setProfile(){
-    if(this.profile.username && this.profile.height && this.profile.weight && this.profile.age){
+    if(this.profile.username && this.profile.height && this.profile.weight 
+      && this.profile.age && this.profile.telephone){
       this.afAuth.authState.take(1).subscribe(auth=>{
         this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
         .then(()=>{
           if(this.profile_already_exists){
-            // showing succes toast on success
+            // showing toast-success on success
             let toast = this.toastCtrl.create({
               message: `Profile has been updated`,
               duration: 2700,
@@ -65,13 +66,11 @@ export class ProfilePage {
             this.navCtrl.setRoot('MenuPage');
           }
           });
-
-
       });
     }else{
-      // showing invalid daata toast on success
+      // showing toast-failed
       let toast = this.toastCtrl.create({
-        message: `Some data is invalid. \n Profile has not been updated!`,
+        message: `All fields are required. \n Profile has not been updated!`,
         duration: 4500,
         position: "top",
         showCloseButton: true,

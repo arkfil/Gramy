@@ -9,7 +9,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <ion-item>
     <ion-label color="primary" floating>Your Username</ion-label>
@@ -25,7 +24,7 @@
   </ion-item>
   
   <ion-item>
-    <ion-label floating>What is your age</ion-label>
+    <ion-label color="primary" floating>What is your age</ion-label>
     <ion-input required pattern="[0-9]*" type="number" [(ngModel)]="profile.age" min="0" max="150" clearInput></ion-input>
   </ion-item>
 
@@ -35,7 +34,7 @@
   </ion-item>
 
   <ion-item>
-      <ion-label floating>What is your weight</ion-label>
+      <ion-label color="primary" floating>What is your weight</ion-label>
       <ion-input required pattern="[0-9]*" type="number" [(ngModel)] ="profile.weight" min="0" max="200" clearInput></ion-input>
   </ion-item>
 
@@ -44,11 +43,12 @@
     <ion-input type=“tel” pattern="[0-9]*" maxlength=“9” [(ngModel)]="profile.telephone" clearInput></ion-input>
   </ion-item>
 
-  <br>
-  <br>
+  <br><br>
 
   <ion-item>
-      <button ion-button block large color="orange-crush-darker" (tap)='setProfile()'>Save Profile</button>
+      <button ion-button block large color="orange-crush-darker" (tap)='setProfile()'>
+        <ion-icon name="md-person" id="btn-icon-save"></ion-icon>
+        Save Profile
+      </button>
     </ion-item>
-
 </ion-content>
