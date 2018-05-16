@@ -18,14 +18,16 @@
     <ion-label>
       <ion-icon name="md-cog"></ion-icon>
     </ion-label>
-    <ion-input type="password" required placeholder="Password" [(ngModel)]="user.password" clearInput></ion-input>
+    <ion-input clearInput required [type]="passwordTypeOriginal" placeholder="Password" [(ngModel)]="user.password" clearOnEdit="false"></ion-input>
+    <ion-icon item-end [name]="passwordIconOriginal" class="passwordIcon" (click)='hideShowPasswordOriginal()'></ion-icon>
   </ion-item>
 
   <ion-item>
     <ion-label>
       <ion-icon name="md-cog"></ion-icon>
     </ion-label>
-    <ion-input type="password" required placeholder="Repeat passoword" [(ngModel)]="user.repeated_password" clearInput></ion-input>
+    <ion-input clearInput required [type]="passwordTypeRepeat" placeholder="Repeat password" [(ngModel)]="user.repeated_password" clearOnEdit="false"></ion-input>
+    <ion-icon item-end [name]="passwordIconRepeat" class="passwordIcon" (click)='hideShowPasswordRepeat()'></ion-icon>
   </ion-item>
 
   <br>

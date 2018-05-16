@@ -39,22 +39,15 @@ export class HistoryPage {
     this.afAuth.authState.take(1).subscribe(auth=>{
       this.user_id = auth.uid;
     });
-
     console.log("History constructor");
-
   }
-
-
 
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();
-
     console.log('Current index is', currentIndex);
   }
 
   ionViewWillEnter(){
-
-
     console.log('ionViewWillEnter HistoryPage');
 
     this.afDatabase.list(`measures/${this.user_id}`).valueChanges().take(1).subscribe(
@@ -68,15 +61,15 @@ export class HistoryPage {
 
           data.forEach(item => {
             let tmpMsr= {} as MeasureMapper;
-
-            tmpMsr.date = new Date((<CardioParams>item).date).toUTCString().replace('T',' ');
+            tmpMsr.date = new Date((<CardioParams>item).date).toDateString() + " " +
+             new Date((<CardioParams>item).date).getHours() + ":" +
+             new Date((<CardioParams>item).date).getMinutes();//.replace('T',' ');
             tmpMsr.pulse = (<CardioParams>item).pulse;
             tmpMsr.diastolic_pressure = (<CardioParams>item).diastolic_pressure;
             tmpMsr.systolic_pressure = (<CardioParams>item).systolic_pressure;
 
             this.measures.push(tmpMsr);
           });
-
           console.log(this.measures);
         }else{
           //something else
@@ -94,8 +87,9 @@ export class HistoryPage {
 
           data.forEach(item => {
             let tmpSpt= {} as SympthomMapper;
-
-            tmpSpt.date = new Date((<OtherSympthoms>item).date).toUTCString().replace('T',' ');
+            tmpSpt.date = new Date((<OtherSympthoms>item).date).toDateString() + " " +
+             new Date((<OtherSympthoms>item).date).getHours() + ":" +
+             new Date((<OtherSympthoms>item).date).getMinutes();//.toUTCString().replace('T',' ');
             tmpSpt.intensity = (<OtherSympthoms>item).intensity;
             tmpSpt.name = (<OtherSympthoms>item).name;
             tmpSpt.description = (<OtherSympthoms>item).description;
@@ -108,9 +102,6 @@ export class HistoryPage {
           //something else
         }
     });
-
-
-
   }
 
   ionViewDidLoad() {

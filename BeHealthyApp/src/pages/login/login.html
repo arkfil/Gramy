@@ -15,12 +15,15 @@
       <ion-input clearInput required type="email"  placeholder="Email" value="" [(ngModel)]="user.email"></ion-input>
     </ion-item>
     <br>
+
     <ion-item>
       <ion-label>
         <ion-icon name="md-cog"></ion-icon>
       </ion-label>
-      <ion-input clearInput required type="password"  placeholder="Password" [(ngModel)]="user.password"></ion-input>
+      <ion-input clearInput required [type]="passwordType" placeholder="Password" [(ngModel)]="user.password" clearOnEdit="false"></ion-input>
+      <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
     </ion-item>
+
     <br>
     <button ion-button icon-left full (tap)="loginWithEmailAndPassword(user)">
       <ion-icon name="md-key"></ion-icon>

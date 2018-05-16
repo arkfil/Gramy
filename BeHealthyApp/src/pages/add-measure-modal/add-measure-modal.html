@@ -14,8 +14,8 @@
   </div>
 
   <ion-item>
-    <ion-label floating>Mesurement time</ion-label>
-    <ion-datetime displayFormat="DD MMM YYYY HH:mm" [(ngModel)]="inputDateTime"></ion-datetime>
+    <ion-label>Date:</ion-label>
+    <ion-datetime placeholder="Today (or select another)" style="color:danger;" displayFormat="DD MMM YYYY HH:mm" [(ngModel)]="inputDateTime" clearInput></ion-datetime>
   </ion-item>
   <br>
 

@@ -10,6 +10,20 @@ import { AngularFireAuth } from 'angularfire2/auth'
 })
 export class RegisterPage {
   user = {} as User;
+  passwordTypeOriginal: string = 'password';
+  passwordIconOriginal: string = 'eye-off';
+  passwordTypeRepeat: string = 'password';
+  passwordIconRepeat: string = 'eye-off';
+
+  hideShowPasswordOriginal() {
+    this.passwordTypeOriginal = this.passwordTypeOriginal === 'text' ? 'password' : 'text';
+    this.passwordIconOriginal = this.passwordIconOriginal === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
+  hideShowPasswordRepeat() {
+    this.passwordTypeRepeat = this.passwordTypeRepeat === 'text' ? 'password' : 'text';
+    this.passwordIconRepeat = this.passwordIconRepeat === 'eye-off' ? 'eye' : 'eye-off';
+  }
 
   constructor(private afAuth: AngularFireAuth, private toastCtrl: ToastController,
     public navCtrl: NavController, public navParams: NavParams) {

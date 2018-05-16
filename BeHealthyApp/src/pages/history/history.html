@@ -1,84 +1,58 @@
-
 <ion-header>
-
-
   <ion-navbar color="orange-crush">
       <ion-buttons left>
           <button  icon-only ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
-        </ion-buttons>
-    <ion-title>History</ion-title>
-
-
-
-
-
+      </ion-buttons>
+  <ion-title>History</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
-
-
   <ion-slides pager paginationType="bullets">
-        <ion-slide style="height: auto;">
-            <ion-content>
-
-            <ion-card *ngFor="let measure of measures ">
-              <ion-card-content>
-                <ion-card-title>
-                  Measure date: {{measure.date}}
-                </ion-card-title>
-                <p>
-                    Systolic pressure: {{measure.systolic_pressure}}
-                </p>
-                <p>
-                    Diastolic pressure: {{measure.diastolic_pressure}}
-                </p>
-                <p>
-                  Pulse: {{measure.pulse}}
-                </p>
-              </ion-card-content>
-           </ion-card>
-
-    </ion-content>
-
+    
+    <ion-slide style="height: auto;">
+      <ion-content>
+        <ion-card *ngFor="let measure of measures ">
+          <ion-card-content>
+            <ion-card-title>
+              Measure date: {{measure.date}}
+            </ion-card-title>
+            <p>
+              Systolic pressure: {{measure.systolic_pressure}}
+            </p>
+            <p>
+              Diastolic pressure: {{measure.diastolic_pressure}}
+            </p>
+            <p>
+              Pulse: {{measure.pulse}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
     </ion-slide>
 
     <ion-slide>
-<ion-content>
-
-    <ion-card *ngFor="let sympthom of sympthoms ">
-        <ion-card-content>
-          <ion-card-title>
-            Day noted: {{sympthom.date}}
-          </ion-card-title>
-          <p>
-              Name: {{sympthom.name}}
-          </p>
-          <p>
-              Intensity: {{sympthom.intensity}}
-          </p>
-          <p>
-              Additionals: {{sympthom.description}}
-          </p>
-        </ion-card-content>
-     </ion-card>
-
-</ion-content>
-
+      <ion-content>
+          <ion-card *ngFor="let sympthom of sympthoms">
+            <ion-card-content>
+              <ion-card-title>
+                Date: {{sympthom.date}}
+              </ion-card-title>
+              <p>
+                Symptom: {{sympthom.name}}
+              </p>
+              <p>
+                Intensity: {{sympthom.intensity}}
+              </p>
+              <p>
+                Additional description: {{sympthom.description}}
+              </p>
+            </ion-card-content>
+          </ion-card>
+      </ion-content>
     </ion-slide>
 
-
   </ion-slides>
-
-
-
-
-
-
-
-
-
 </ion-content>

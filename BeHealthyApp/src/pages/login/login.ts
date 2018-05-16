@@ -19,7 +19,14 @@ export class LoginPage {
   appUser: firebase.User;
   user= {} as User;
   // profileData: AngularFireObject<Profile>
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
 
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+  
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
     private gplus: GooglePlus, private afDatabase: AngularFireDatabase, private alertCtrl: AlertController,
