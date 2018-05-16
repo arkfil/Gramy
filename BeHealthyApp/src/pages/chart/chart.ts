@@ -24,36 +24,47 @@ export class ChartPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth) {
 
-      this.afAuth.authState.take(1).subscribe(auth=>{
-        this.userId = auth.uid;});
+      try {
+        this.afAuth.authState.subscribe(data => {
+          if (data.email && data.uid) {
+            this.userId = data.uid;
+            console.log('logged in measure actv: ' + data);
+          } else {
+            console.log('should do something to get rid of the user! He is not logged in!');
+          }
+        });
+      } catch (e) {
+        console.log('could not get userId' + e)
       }
+    }
 
   ionViewDidLoad() {
 
     this.renderChart();
   }
-  
+
   private renderChart(): void {
     this.systolicPressureDataPoints = new Array<ChartDataPoint>();
     this.diastolicPressureDataPoints = new Array<ChartDataPoint>();
     this.pulseDataPoints = new Array<ChartDataPoint>();
 
-    this.afDatabase.list(`measures/${this.userId}`).valueChanges().take(1).subscribe(response => {
+    this.afDatabase.database.ref(`measures/${this.userId}`).orderByChild('date').limitToLast(7).once('value')
+    .then(response => {
         if (response) {
           this.mapDatabaseResponse(response);
-
           this.InitChart();
         }
       });
   }
 
   private mapDatabaseResponse(measurements): void {
-    measurements.forEach(measurement => {
+    measurements.forEach(measurementItem => {
+      let measurement = measurementItem.val();
       let measureDate = new Date(measurement.date);
 
-      this.systolicPressureDataPoints.push({ x: measureDate, y: measurement.systolic_pressure });
-      this.diastolicPressureDataPoints.push({ x: measureDate, y: measurement.diastolic_pressure });
-      this.pulseDataPoints.push({ x: measureDate, y: measurement.pulse });
+      this.systolicPressureDataPoints.push(<ChartDataPoint>{ x: measureDate, y: Number(measurement.systolic_pressure) });
+      this.diastolicPressureDataPoints.push(<ChartDataPoint>{ x: measureDate, y: Number(measurement.diastolic_pressure) });
+      this.pulseDataPoints.push(<ChartDataPoint>{ x: measureDate, y: Number(measurement.pulse) });
     });
   }
 
