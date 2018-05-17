@@ -33,7 +33,7 @@ export class MenuPage {
     {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
   ]
 
-  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams, ) {
+  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
