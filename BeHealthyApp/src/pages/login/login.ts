@@ -26,7 +26,7 @@ export class LoginPage {
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
-  
+
   constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController, public platform: Platform, private facebook: Facebook,
     private gplus: GooglePlus, private afDatabase: AngularFireDatabase, private alertCtrl: AlertController,
@@ -63,7 +63,7 @@ export class LoginPage {
   }
 
   async loginWithEmailAndPassword(user: User){
-    let loading = this.loadingController.create({content : "Logging in,please wait..."});
+    let loading = this.loadingController.create({content : "Logging in, please wait..."});
     try{
       if(user.email && user.password) {
         loading.present();

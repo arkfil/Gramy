@@ -10,7 +10,40 @@
 </ion-header>
 
 <ion-content>
-  <h1>Basic info here, BMI, last measures, comparison to the other ppl</h1>
+  <h3>How to check Blood Pressure</h3>
+
+  <ion-slides pager>
+    <ion-slide>
+      <img src="assets/imgs/Blood-Pressure-3.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/Blood-Pressure-2.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/Blood-Pressure-1.jpg">
+    </ion-slide>
+  </ion-slides>
+
+  <ol>
+    <li>Sit in a chair with both feet flat on the ground and your back straight. It is recommended you sit for about 5 minutes
+      before measuring your blood pressure.</li>
+    <li>Rest your arm on a surface (such as a table) around the level of your heart or chest.</li>
+    <li>Take your blood pressure according to the instructions of your machine. Stay still and do not talk as the machine is working.</li>
+    <li>It can sometimes be helpful to repeat another blood pressure reading 1 to 2 minutes later and use the average of the 2
+      readings.</li>
+  </ol>
+
+  <br>
+  <h3>How to check Heart Rate</h3>
+  <ion-slides pager>
+    <ion-slide>
+      <img src="assets/imgs/Pulse.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/heart-rate-chart.png">
+    </ion-slide>
+  </ion-slides>
+
   <ion-fab bottom right padding>
     <!-- <button ion-fab color="orange-crush-darker" (tap)="presentModal()"><ion-icon name="add"></ion-icon></button> -->
     <button ion-fab color="orange-crush-darker"><ion-icon name="add"></ion-icon></button>
@@ -19,4 +52,12 @@
       <button ion-fab color="secondary" (tap)="presentOtherSympthomsModal()"><ion-icon name="md-pulse"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
+
+    <ol>
+      <li>Place your index and third fingers on your neck to the side of your windpipe. To check your pulse at your wrist, place two
+      fingers between the bone and the tendon over your radial artery — which is located on the thumb side of your wrist.</li>
+      <li>When you feel your pulse, count the number of beats in 15 seconds. Multiply this number by 4 to calculate your
+         beats a minute.
+      </li>
+    </ol>
 </ion-content>

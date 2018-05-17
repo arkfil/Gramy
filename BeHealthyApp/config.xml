@@ -104,5 +104,6 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <allow-navigation href="http://192.168.35.77:8100" />
     <plugin name="cordova-universal-links-plugin" spec="https://github.com/walteram/cordova-universal-links-plugin" />
+    <plugin name="cordova-sqlite-storage" spec="^2.3.1" />
     <engine name="android" spec="^7.0.0" />
 </widget>
