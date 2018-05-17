@@ -22,21 +22,11 @@ export class MyApp {
   // usr: firebase.User;
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad app.component.ts !!!');
-
-    console.log('ionViewDidLoad NAV SET ROOT INTRO');
-    
-    
-    this.storage.get('intro-done').then(done => {
-      // if (!done) {
-        this.storage.set('intro-done', true);
-        this.nav.setRoot(IntroPage);//, { 'defaultRootPage': "LoginPage" });
-      // }
-    });
+    console.log('ionViewDidLoad app.component.ts');
   }
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, afAuth: AngularFireAuth,
-    public storage: Storage,) {
+    public storage: Storage) {
 
     platform.ready().then(() => {
 
@@ -45,30 +35,25 @@ export class MyApp {
         console.log(auth);
         console.log("Again");
         if (auth && auth.uid) {  
-          //
+          // checking if user has watched intro tutorial and user was logged in
           this.storage.get('intro-done').then(done => {
-            // if (!done) {
-            if (done !== null && done !== undefined) {
+            if (!done) {
               this.storage.set('intro-done', true);
               this.nav.setRoot(IntroPage, { 'defaultRootPage': "MenuPage" });
+            } else {
+              this.rootPage = MenuPage;
             }
           });
-
-          //this.rootPage = MenuPage;
-
-        }else{
-          //
+        } else {
+          // checking if user has watched intro tutorial and user was not logged in
           this.storage.get('intro-done').then(done => {
-            // if (!done) {
-            if (done !== null && done !== undefined) {
-              
+            if (!done) {
               this.storage.set('intro-done', true);
               this.nav.setRoot(IntroPage, { 'defaultRootPage': "LoginPage" });
+            } else {
+              this.rootPage = LoginPage;
             }
           });
-
-          //this.rootPage= LoginPage;
-
         }
       });
 

@@ -5,6 +5,8 @@ import { ChartPage } from '../chart/chart';
 import { LoginPage } from '../login/login';
 import { AuthorsPage } from '../authors/authors';
 import { ProfilePage } from '../profile/profile';
+import { Storage } from '@ionic/storage';
+import { IntroPage } from '../intro/intro';
 
 export interface PageInterface{
   title: string;
@@ -33,7 +35,8 @@ export class MenuPage {
     {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
   ]
 
-  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, 
+    public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -87,7 +90,16 @@ export class MenuPage {
         // }else{
 
         // }
-        this.navCtrl.setRoot(LoginPage);
+
+        this.storage.get('intro-done').then(done => {
+          // redireting to IntroPage after Signing out
+          this.storage.set('intro-done', false);
+          this.navCtrl.setRoot(IntroPage);
+        });
+        
+        //this.navCtrl.setRoot(LoginPage);
+
+
       }catch(e){
         console.log("Error while logging out with google");
       }

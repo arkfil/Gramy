@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Intro</ion-title>
+    <ion-title>BeHealthy App</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,52 +9,81 @@
   <ion-slides pager="true" parallax="true" padding>
 
     <ion-slide>
-      <!-- <img src="assets/"> -->
-      <h1>Welcome to my app!</h1>
+      <div class="diag " style="background: url('assets/imgs/white.svg') no-repeat">
+        <ion-icon ios="ios-pulse" md="md-pulse" color="ff8d1c"></ion-icon>
+      </div>
+      <div>
+        <h2>Welcome to BeHealthy!</h2>
+      </div>
       <button ion-button outline small (click)="navHome()">
         Start using the app
       </button>
     </ion-slide>
 
     <ion-slide>
-      <!-- <img src="assets/"> -->
-      <h1>Track your health routine</h1>
-      <p>whether it symptoms, illness, pressure or pulse, you can track it all with our intuitive interface</p>
+      <!-- stats -->
+      <div class="diag" style="background: url('assets/imgs/white.svg') no-repeat">
+        <ion-icon ios="ios-stats" md="md-stats" color="black"></ion-icon>
+      </div>
+      <div>
+        <h2>Track your health</h2>
+        <p>symptom, illness, pressure, pulse or BMI, you can track it with our intuitive interface</p>
+      </div>
       <button ion-button outline small (click)="navHome()">
         Start using the app
       </button>
     </ion-slide>
 
     <ion-slide>
-      <!-- <img src="assets/"> -->
-      <h1>Set personal goals</h1>
-      <p>like weight loss and receive notifications from our app</p>
+      <!-- people -->
+      <div class="diag" style="background: url('assets/imgs/white.svg') no-repeat">
+        <ion-icon ios="ios-people" md="md-people" color="black"></ion-icon>
+      </div>
+      <div>
+        <h2>Compare to others</h2>
+        <p>charts that help you to know how you stand out from the crowd</p>
+      </div>
       <button ion-button outline small (click)="navHome()">
         Start using the app
       </button>
     </ion-slide>
 
     <ion-slide>
-      <!-- <img src="assets/"> -->
-      <h1>Compare yourself to others</h1>
-      <p>charts that help you to know how you stand out from the crowd</p>
+      <!-- pin -->
+      <div class="diag" style="background: url('assets/imgs/white.svg') no-repeat">
+        <ion-icon ios="ios-pin" md="md-pin" color="black"></ion-icon>
+      </div>
+      <div>
+        <h2>Integrated map</h2>
+        <p>find nearest hospitals or pharmacies</p>
+      </div>
       <button ion-button outline small (click)="navHome()">
         Start using the app
       </button>
     </ion-slide>
 
-    <ion-slide>
-      <!-- <img src="assets/"> -->
-      <h1>Integrated map</h1>
-      <p>find nearest hospitals or pharmacies</p>
-      <button ion-button outline small (click)="navHome()">
-        Start using the app
-      </button>
-    </ion-slide>
+      <ion-slide>
+        <!-- person-add -->
+        <div class="diag" style="background: url('assets/imgs/white.svg') no-repeat">
+          <ion-icon ios="ios-person-add" md="md-person-add" color="black"></ion-icon>
+        </div>
+        <div>
+          <h2>Simple login</h2>
+          <p>login with Facebook, Google or create account</p>
+        </div>
+        <button ion-button outline small (click)="navHome()">
+          Start using the app
+        </button>
+      </ion-slide>
 
     <ion-slide>
-      <!-- <img src="assets/img3.svg"> -->
-      <h1>Get started now!</h1>
+      <div class="diag" style="background: url('assets/imgs/white.svg') no-repeat">
+        <ion-icon ios="ios-phone-portrait" md="md-phone-portrait" color="black"></ion-icon>
+      </div>
+      <div>
+        <h2>Get started now!</h2>
+        <p>Enjoy!</p>
+      </div>
       <button ion-button outline small (click)="navHome()">
         Start using the app
       </button>

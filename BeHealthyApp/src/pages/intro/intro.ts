@@ -15,7 +15,14 @@ export class IntroPage {
 
   navHome() {
     this.page = this.navParams.get('defaultRootPage');
-    this.navCtrl.setRoot(this.page);
+    if(this.page)
+    {
+      // redirect to specific page if NavParams have been sent
+      this.navCtrl.setRoot(this.page);
+    } else {
+      // redirect to LoginPage if NavParams have not been sent
+      this.navCtrl.setRoot(LoginPage);
+    }
   }
 
   ionViewDidLoad() {
