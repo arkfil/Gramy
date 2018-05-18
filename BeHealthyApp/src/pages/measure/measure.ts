@@ -4,7 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { CardioParams } from '../../models/CardioParams';
 import { OtherSympthoms } from '../../models/OtherSympthoms';
-
+import { CallNumber } from '@ionic-native/call-number';
 
 @IonicPage()
 @Component({
@@ -17,7 +17,7 @@ export class MeasurePage {
   otherSympthoms: OtherSympthoms
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController,
-    private afDatabase: AngularFireDatabase, private afAuth : AngularFireAuth) {
+    private afDatabase: AngularFireDatabase, private afAuth : AngularFireAuth, private callNumber: CallNumber) {
     try{
       this.afAuth.authState.subscribe(data => {
         if(data.email && data.uid){
@@ -31,6 +31,22 @@ export class MeasurePage {
     }catch(e){
 
     }
+  }
+
+  callEmergency(){
+    this.callNumber.callNumber(`*101#`, true);
+
+    // this.callNumber.isCallSupported()
+    // .then(function (response) {
+    //     if (response == true) {
+    //       this.callNumber.callNumber(`796284682`, true);
+
+    //     }
+    //     else {
+    //         // do something else
+    //     }
+    // });
+
   }
 
   ionViewDidLoad() {

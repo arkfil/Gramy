@@ -20,6 +20,7 @@ import { IntroPage } from '../pages/intro/intro';
 //
 import { Storage } from '@ionic/storage';
 import { IonicStorageModule } from "@ionic/storage";
+import { CallNumber } from '@ionic-native/call-number';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBvE1AMLqRSm-lMvPMwprcqfwk7sz5c0QQ",
@@ -67,7 +68,8 @@ const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
-    Facebook
+    Facebook,
+    CallNumber
   ]
 })
 export class AppModule {}
