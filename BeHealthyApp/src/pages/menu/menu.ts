@@ -7,6 +7,8 @@ import { AuthorsPage } from '../authors/authors';
 import { ProfilePage } from '../profile/profile';
 import { Storage } from '@ionic/storage';
 import { IntroPage } from '../intro/intro';
+import { BmiPage } from '../bmi/bmi';
+
 
 export interface PageInterface{
   title: string;
@@ -32,6 +34,7 @@ export class MenuPage {
     {title:'Map', pageName: 'MapPage', icon: 'map'},
     {title:'Chart', pageName: 'ChartPage', icon: 'md-stats'},
     {title:'Profile', pageName:'ProfilePage', icon:'md-contact'},
+    { title: 'BMI', pageName: 'BmiPage', icon: 'md-man' },
     {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
   ]
 

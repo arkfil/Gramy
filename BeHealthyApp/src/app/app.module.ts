@@ -34,7 +34,7 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    IntroPage
+    IntroPage,
     //,
     // LoginPage,
     // MenuPage
@@ -60,7 +60,7 @@ const firebaseConfig = {
     MyApp,
     LoginPage,
     MenuPage,
-    IntroPage
+    IntroPage,
   ],
   providers: [
     GooglePlus,

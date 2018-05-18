@@ -8,6 +8,10 @@ import { BmiPage } from './bmi';
   ],
   imports: [
     IonicPageModule.forChild(BmiPage),
-  ],
+  ]
+  // ,
+  // exports: [
+  //   BmiPage
+  // ]
 })
 export class BmiPageModule {}
