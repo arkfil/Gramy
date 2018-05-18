@@ -66,11 +66,17 @@ We encourage you to take part in this project as well!
 
 | Author               | Work done (and time)
 |----------------------|------------------------
-| Arkadiusz Filipowski |     
-|                      |
-|                      |
-|                      |
-|                      |
+| Arkadiusz Filipowski | - Searching for optimal framework - 6h
+|                      | - Basic project structure - 7h
+|                      | - Core of the aplication - basic styles, routing - 12h
+|                      | - Login system - integration with firebase, facebook etc. - 15h
+|                      | - Map - 6h
+|                      | - Measure - taking measures - 3h
+|                      | - Measures history - 4h
+|                      | - Basics of profile page - 5h
+|                      | - Styling - 3h
+|                      | - Making app to work in background - 3h
+|                      | - Emergency call - 2h
 |----------------------|------------------------
 | Artem Silin          |          
 |                      |
