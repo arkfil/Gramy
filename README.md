@@ -61,4 +61,31 @@ Participants in aplication development:
 
 We encourage you to take part in this project as well! 
 
+
+### Declared contribution to the project
+
+| Author               | Work done (and time)
+|----------------------|------------------------
+| Arkadiusz Filipowski |     
+|                      |
+|                      |
+|                      |
+|                      |
+|----------------------|------------------------
+| Artem Silin          |          
+|                      |
+|                      |
+|----------------------|------------------------
+| Agnieszka Szebla     | 
+|                      |
+|                      |
+|----------------------|------------------------
+| Mateusz Wróbel       |
+|                      |
+|                      |
+|                      |
+|                      |
+|                      |
+|                      |
+
 ## ENJOY!

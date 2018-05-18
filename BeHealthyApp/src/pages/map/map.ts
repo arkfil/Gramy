@@ -5,11 +5,13 @@ import { Geolocation } from '@ionic-native/geolocation'
 declare var google: any;
 
 @IonicPage()
+
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html',
 })
 export class MapPage {
+
   currentLat: any;
   currentLng: any;
 
@@ -44,8 +46,6 @@ export class MapPage {
 
 
   ionViewDidLoad() {
-
-
     console.log('ionViewDidLoad MapPage');
   }
 

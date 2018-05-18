@@ -22,6 +22,12 @@ import { Storage } from '@ionic/storage';
 import { IonicStorageModule } from "@ionic/storage";
 import { CallNumber } from '@ionic-native/call-number';
 
+import { BackgroundMode } from '@ionic-native/background-mode';
+
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBvE1AMLqRSm-lMvPMwprcqfwk7sz5c0QQ",
   authDomain: "baihealthy.firebaseapp.com",
@@ -69,7 +75,10 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
     Facebook,
-    CallNumber
+    CallNumber,
+    BackgroundMode,
+    LocalNotifications
+
   ]
 })
 export class AppModule {}
