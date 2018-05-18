@@ -11,9 +11,17 @@
 
 <ion-content>
   <ion-slides pager paginationType="bullets">
-    
+
     <ion-slide style="height: auto;">
       <ion-content>
+        <ion-card *ngIf="measures?.length==0">
+            <ion-card-title>
+                You don't have any history!
+             </ion-card-title>
+             <p>
+               You can add blood pressure and hearth rate measures on 'Measure' screen
+             </p>
+        </ion-card>
         <ion-card *ngFor="let measure of measures ">
           <ion-card-content>
             <ion-card-title>
@@ -35,6 +43,14 @@
 
     <ion-slide>
       <ion-content>
+          <ion-card *ngIf="sympthoms?.length==0">
+              <ion-card-title>
+                  You don't have any sympthoms history!
+               </ion-card-title>
+               <p>
+                 You can add new sympthoms you want to be remembered on 'Measure' screen
+               </p>
+          </ion-card>
           <ion-card *ngFor="let sympthom of sympthoms">
             <ion-card-content>
               <ion-card-title>
