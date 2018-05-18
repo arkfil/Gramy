@@ -22,6 +22,7 @@
     "@angular/platform-browser": "5.2.10",
     "@angular/platform-browser-dynamic": "^5.2.10",
     "@firebase/app": "^0.1.10",
+    "@ionic-native/background-mode": "^4.7.0",
     "@ionic-native/call-number": "^4.7.0",
     "@ionic-native/core": "4.7.0",
     "@ionic-native/facebook": "^4.7.0",
@@ -35,6 +36,7 @@
     "call-number": "^1.0.1",
     "canvasjs": "^1.8.1",
     "cordova-android": "^7.0.0",
+    "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-browsertab": "^0.2.0",
     "cordova-plugin-buildinfo": "^2.0.1",
     "cordova-plugin-compat": "^1.2.0",
@@ -84,7 +86,8 @@
       },
       "ionic-plugin-keyboard": {},
       "cordova-sqlite-storage": {},
-      "mx.ferreyra.callnumber": {}
+      "mx.ferreyra.callnumber": {},
+      "cordova-plugin-background-mode": {}
     },
     "platforms": [
       "android"

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { BackgroundMode } from '@ionic-native/background-mode';
+
 
 @IonicPage()
 @Component({
@@ -11,8 +13,19 @@ export class TabsPage {
   tab2Root = 'HistoryPage';
   myIndex: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, private backgroundMode: BackgroundMode) {
     this.myIndex = navParams.data.tabIndex || 0;
+
+    platform.ready().then(() => {
+
+      this.backgroundMode.on('activate').subscribe(() => {
+
+
+
+      });
+
+      this.backgroundMode.enable();
+    });
   }
 
   ionViewDidLoad() {
