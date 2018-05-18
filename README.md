@@ -98,12 +98,11 @@ We encourage you to take part in this project as well!
 |                      | bugfixing - 5h
 |----------------------|------------------------
 | Mateusz Wróbel       | - Choosing framework - 3h
-                         - Planning 2h
-                         - Styling - 4h
-                         - Bug fixing 3h
-                         - Authors page - 9 h 
+|                      |  - Planning 2h
+|                      |  - Styling - 4h
+|                      |  - Bug fixing 3h
+|                      |  - Authors page - 9 h 
 |                      | - Notyfications 6 h
-|                      |
 |                      |
 |                      |
 |                      |
