@@ -82,9 +82,13 @@ We encourage you to take part in this project as well!
 |                      |
 |                      |
 |----------------------|------------------------
-| Agnieszka Szebla     | 
-|                      |
-|                      |
+| Agnieszka Szebla     | introducing AngularJS framework - 12h
+|                      | introducing CanvasJS module - 4h
+|                      | introducing Firebase module - 5h
+|                      | preparing data models - 2h
+|                      | creating chart page - 12h
+|                      | working on mesurement page - 4h
+|                      | bugfixing - 5h
 |----------------------|------------------------
 | Mateusz Wróbel       |
 |                      |
