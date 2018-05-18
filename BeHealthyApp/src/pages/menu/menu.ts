@@ -35,7 +35,7 @@ export class MenuPage {
     {title:'Authors', pageName:'AuthorsPage', icon: 'md-brush'}
   ]
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, 
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage) {
   }
 
@@ -86,17 +86,18 @@ export class MenuPage {
       try{
         this.afAuth.auth.signOut();
         // if(this.platform.is('cordova')){
-        //   this.gplus.logout();
+          // this.gplus.logout();
         // }else{
 
         // }
+
 
         this.storage.get('intro-done').then(done => {
           // redireting to IntroPage after Signing out
           this.storage.set('intro-done', false);
           this.navCtrl.setRoot(IntroPage);
         });
-        
+
         //this.navCtrl.setRoot(LoginPage);
 
 

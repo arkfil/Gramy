@@ -139,24 +139,30 @@ export class LoginPage {
   googleLogin() {
     console.log("google login ");
 
-    if(this.platform.is('cordova')){
-        //  const gplusUser =
-        this.nativeGoogleLogin();
-    }else{
+    // if(this.platform.is('cordova')){
+    //     //  const gplusUser =
+    //     this.nativeGoogleLogin();
+    // }else{
       console.log("here");
         this.webGoogleLogin();
-    }
+    // }
   }
 
 
 async nativeGoogleLogin(): Promise<void> {
   try{
+    console.log("google login _2");
+
     const gplusUser = await this.gplus.login({
       'webClientId':'756039335184-ke1ifc475v90oa1f52c66lb7d4tisbj6.apps.googleusercontent.com',
       'offline': true,
       'scopes': 'profile email'
+    }).catch(err=>{
+      console.log("google login error: " + err);
     });
 
+    console.log("google login _3");
+    console.log(gplusUser.idToken);
     return await this.afAuth.auth.signInWithCredential(
       firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken)
     );
@@ -171,7 +177,7 @@ async nativeGoogleLogin(): Promise<void> {
 async webGoogleLogin(): Promise<void>{
   try{
     const provider = new firebase.auth.GoogleAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    const credential = await this.afAuth.auth.signInWithRedirect(provider);
     console.log(credential);
 
   }catch(err){
