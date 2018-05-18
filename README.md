@@ -78,16 +78,9 @@ We encourage you to take part in this project as well!
 |                      | - Making app to work in background - 3h
 |                      | - Emergency call - 2h
 |----------------------|------------------------
-| Artem Silin          | - Intro page - 10h
-|                      | - BMI Calculator - 5h
-|                      | - Fixing bugs - 10h
-|                      | - README.md - 3h
-|                      | - Emergency call Improvement - 3h
-|                      | - Profile Improvement - 10h
-|                      | - Validation added on all pages - 10h
-|                      | - Toasts and Alerts added on all pages - 6h
-|                      | - Syles on Login page Improvement - 4h
-|                      | - Added content to measure pages - 3h
+| Artem Silin          |          
+|                      |
+|                      |
 |----------------------|------------------------
 | Agnieszka Szebla     | introducing AngularJS framework - 12h
 |                      | introducing CanvasJS module - 4h
@@ -97,7 +90,12 @@ We encourage you to take part in this project as well!
 |                      | working on mesurement page - 4h
 |                      | bugfixing - 5h
 |----------------------|------------------------
-| Mateusz Wróbel       |
+| Mateusz Wróbel       | - Choosing framework - 3h
+                         - Planning 2h
+                         - Styling - 4h
+                         - Bug fixing 3h
+                         - Authors page - 9 h 
+|                      | - Notyfications 6 h
 |                      |
 |                      |
 |                      |
