@@ -22,6 +22,7 @@ import { Storage } from '@ionic/storage';
 import { IonicStorageModule } from "@ionic/storage";
 import { CallNumber } from '@ionic-native/call-number';
 import { BackgroundMode } from '@ionic-native/background-mode';
+
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
@@ -75,6 +76,7 @@ const firebaseConfig = {
     CallNumber,
     BackgroundMode,
     LocalNotifications
+
   ]
 })
 export class AppModule {}

@@ -6,6 +6,7 @@ import { TabsPage } from './tabs';
   declarations: [
     TabsPage,
   ],
+
   imports: [
     IonicPageModule.forChild(TabsPage),
   ],

@@ -8,6 +8,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   selector: 'page-tabs',
   templateUrl: 'tabs.html',
 })
+
 export class TabsPage {
   tab1Root = 'MeasurePage';
   tab2Root = 'HistoryPage';
